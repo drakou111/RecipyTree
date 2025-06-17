@@ -1,0 +1,36 @@
+.item-select, .machine-select {
+    width: 6em;
+    height: 6em;
+    background: var(--not-selected);
+    border: 1px solid var(--border);
+    border-radius: 1em;
+    padding: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 0.2em;
+    cursor: pointer;
+    transition: background-color 250ms linear, border 250ms linear;
+}
+
+.item-select:hover, .machine-select:hover {
+    background: var(--not-selected-hover);
+    transition: background-color 100ms linear;
+}
+
+.item-select.selected, .machine-select.selected {
+    background: var(--selected);
+    transition: background-color 250ms linear;
+}
+
+.item-select.selected:hover, .machine-select.selected:hover {
+    background: var(--selected-hover);
+    transition: background-color 100ms linear;
+}
+
+.item-image, .machine-image {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    image-rendering: pixelated;
+}

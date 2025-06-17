@@ -1,0 +1,57 @@
+.toggle-container {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  display: flex;
+  align-items: center;
+}
+
+.toggle {
+  display: none;
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 0.5em;
+}
+
+/* The visual toggle switch */
+.toggle-switch {
+  width: 4em;
+  height: 2em;
+  background-color: var(--toggle-bg, #ccc);
+  border-radius: 1em;
+  position: relative;
+  transition: background-color 0.25s linear;
+}
+
+/* The knob inside the switch */
+.toggle-switch::after {
+  content: "";
+  position: absolute;
+  width: 1.6em;
+  height: 1.6em;
+  top: 50%;
+  left: 0.2em;
+  transform: translateY(-50%);
+  background-color: var(--toggle-fg, #fff);
+  border-radius: 50%;
+  transition: transform 0.25s linear, background-color 0.25s linear;
+}
+
+/* Checked state - update background + move knob */
+.toggle:checked + .toggle-label .toggle-switch {
+  background-color: var(--toggle-bg-active, #4a90e2);
+}
+
+.toggle:checked + .toggle-label .toggle-switch::after {
+  transform: translate(2em, -50%);
+}
+
+.toggle-text {
+  font-size: 2em;
+  color: var(--primary-text-color);
+  transition: background-color 250ms linear, color 250ms linear;
+}

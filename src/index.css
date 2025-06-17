@@ -1,0 +1,43 @@
+/* index.css */
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  --background-color: #f6f6f6;
+  --foreground-color: #003cff;
+  --primary-text-color: #0a0a0a;
+  --secondary-text-color: #ffffff;
+  --toggle-bg:#f0eb9d;
+  --toggle-fg: #ffd000;
+  --border: #000000;
+  --selected: #99ff99;
+  --not-selected: #999999;
+  --selected-hover: #88ee88;
+  --not-selected-hover: #888888;
+  --button-background: #8888ff;
+  --button-background-hover: #9999ff;
+  --shadow: #000000;
+}
+
+[data-theme="dark"] {
+  --background-color: #0a0a0a;
+  --foreground-color: #567aff;
+  --primary-text-color: #f6f6f6;
+  --secondary-text-color: #0a0a0a;
+  --toggle-bg:#283452;
+  --toggle-fg:#f4f4f4;
+  --border: #ffffff;
+  --selected: #ff99ff;
+  --not-selected: #555555;
+  --selected-hover: #ee88ee;
+  --not-selected-hover: #444444;
+  --button-background: #5555ff;
+  --button-background-hover: #4444ff;
+  --shadow: #ffffff;
+}
