@@ -1,0 +1,654 @@
+[
+  {
+    "name": "SAW",
+    "image": "saw.png",
+    "inputSlots": 1,
+    "outputSlots": 1,
+    "recipes": [
+      {
+        "id": "saw_oak_slab_to_stick",
+        "inputs": [{ "item": "oak_slab", "amount": 1.0 }],
+        "outputs": [{ "item": "stick", "amount": 2.0 }]
+      },
+      {
+        "id": "saw_oak_planks_to_oak_slab",
+        "inputs": [{ "item": "oak_planks", "amount": 1.0 }],
+        "outputs": [{ "item": "oak_slab", "amount": 2.0 }]
+      },
+      {
+        "id": "saw_oak_log_to_oak_planks",
+        "inputs": [{ "item": "oak_log", "amount": 1.0 }],
+        "outputs": [{ "item": "oak_planks", "amount": 4.0 }]
+      },
+      {
+        "id": "saw_andesite_to_unrefined_gold_ore",
+        "inputs": [{ "item": "andesite", "amount": 1.0 }],
+        "outputs": [{ "item": "unrefined_gold_ore", "amount": 1.0 }]
+      },
+      {
+        "id": "saw_birch_planks_to_birch_slab",
+        "inputs": [{ "item": "birch_planks", "amount": 1.0 }],
+        "outputs": [{ "item": "birch_slab", "amount": 2.0 }]
+      },
+      {
+        "id": "saw_birch_log_to_birch_planks",
+        "inputs": [{ "item": "birch_log", "amount": 1.0 }],
+        "outputs": [{ "item": "birch_planks", "amount": 4.0 }]
+      },
+      {
+        "id": "saw_nether_brick_block_to_nether_brick_slab",
+        "inputs": [{ "item": "nether_brick_block", "amount": 1.0 }],
+        "outputs": [{ "item": "nether_brick_slab", "amount": 2.0 }]
+      },
+      {
+        "id": "saw_chiseled_quartz_to_quartz",
+        "inputs": [{ "item": "chiseled_quartz", "amount": 1.0 }],
+        "outputs": [{ "item": "quartz", "amount": 4.0 }]
+      },
+      {
+        "id": "saw_ender_pearl_clump_to_ender_pearl",
+        "inputs": [{ "item": "ender_pearl_clump", "amount": 1.0 }],
+        "outputs": [{ "item": "ender_pearl", "amount": 4.0 }]
+      }
+    ]
+  },
+
+
+
+  {
+    "name": "FURNACE",
+    "image": "furnace.png",
+    "inputSlots": 1,
+    "outputSlots": 1,
+    "recipes": [
+      {
+        "id": "furnace_oak_log_to_charcoal",
+        "inputs": [{ "item": "oak_log", "amount": 1.0 }],
+        "outputs": [{ "item": "charcoal", "amount": 1.0 }]
+      },
+      {
+        "id": "furnace_cobblestone_to_stone",
+        "inputs": [{ "item": "cobblestone", "amount": 1.0 }],
+        "outputs": [{ "item": "stone", "amount": 1.0 }]
+      },
+      {
+        "id": "furnace_stone_to_smooth_stone",
+        "inputs": [{ "item": "stone", "amount": 1.0 }],
+        "outputs": [{ "item": "smooth_stone", "amount": 1.0 }]
+      },
+      {
+        "id": "furnace_gravel_to_andesite",
+        "inputs": [{ "item": "gravel", "amount": 1.0 }],
+        "outputs": [{ "item": "andesite", "amount": 1.0 }]
+      },
+      {
+        "id": "furnace_unrefined_gold_ore_to_smithed_gold_ore",
+        "inputs": [{ "item": "unrefined_gold_ore", "amount": 1.0 }],
+        "outputs": [{ "item": "smithed_gold_ore", "amount": 1.0 }]
+      },
+      {
+        "id": "furnace_raw_copper_to_copper_ingot",
+        "inputs": [{ "item": "raw_copper", "amount": 1.0 }],
+        "outputs": [{ "item": "copper_ingot", "amount": 1.0 }]
+      },
+      {
+        "id": "furnace_nether_brick_block_to_cracked_nether_bricks",
+        "inputs": [{ "item": "nether_brick_block", "amount": 1.0 }],
+        "outputs": [{ "item": "cracked_nether_bricks", "amount": 1.0 }]
+      },
+      {
+        "id": "furnace_tannin_cluster_to_dehydrated_cluster",
+        "inputs": [{ "item": "tannin_cluster", "amount": 1.0 }],
+        "outputs": [{ "item": "dehydrated_cluster", "amount": 1.0 }]
+      },
+      {
+        "id": "furnace_gunpowder_to_tnt",
+        "inputs": [{ "item": "gunpowder", "amount": 1.0 }],
+        "outputs": [{ "item": "tnt", "amount": 1.0 }]
+      },
+      {
+        "id": "furnace_coal-copper_blend_to_coal-copper_ingot",
+        "inputs": [{ "item": "coal-copper_blend", "amount": 1.0 }],
+        "outputs": [{ "item": "coal-copper_ingot", "amount": 1.0 }]
+      },
+      {
+        "id": "furnace_raw_iron_to_iron_ingot",
+        "inputs": [{ "item": "raw_iron", "amount": 1.0 }],
+        "outputs": [{ "item": "iron_ingot", "amount": 1.0 }]
+      },
+      {
+        "id": "furnace_filtered_endstone_powder_to_ender_glass",
+        "inputs": [{ "item": "filtered_endstone_powder", "amount": 1.0 }],
+        "outputs": [{ "item": "ender_glass", "amount": 1.0 }]
+      }
+    ]
+  },
+
+
+  {
+    "name": "TWO_CRAFTER",
+    "image": "two_crafter.png",
+    "inputSlots": 2,
+    "outputSlots": 1,
+    "recipes": [
+      {
+        "id": "two_crafter_smooth_stone_and_smooth_stone_to_stone_bricks",
+        "inputs": [{ "item": "smooth_stone", "amount": 1.0 }, { "item": "smooth_stone", "amount": 1.0 }],
+        "outputs": [{ "item": "stone_bricks", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_stick_and_coal_to_torch",
+        "inputs": [{ "item": "stick", "amount": 1.0 }, { "item": "coal", "amount": 1.0 }],
+        "outputs": [{ "item": "torch", "amount": 4.0 }]
+      },
+      {
+        "id": "two_crafter_tannin_slice_to_tannin_clump",
+        "inputs": [{ "item": "tannin_slice", "amount": 1.0 }, { "item": "tannin_slice", "amount": 1.0 }],
+        "outputs": [{ "item": "tannin_clump", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_birch_log_to_birch_wood",
+        "inputs": [{ "item": "birch_log", "amount": 1.0 }, { "item": "birch_log", "amount": 1.0 }],
+        "outputs": [{ "item": "birch_wood", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_coal_and_raw_copper_to_coal-copper_blend",
+        "inputs": [{ "item": "coal", "amount": 1.0 }, { "item": "raw_copper", "amount": 1.0 }],
+        "outputs": [{ "item": "coal-copper_blend", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_tannin_clump_to_tannin_cluster",
+        "inputs": [{ "item": "tannin_clump", "amount": 1.0 }, { "item": "tannin_clump", "amount": 1.0 }],
+        "outputs": [{ "item": "tannin_cluster", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_birch_wood_and_tnt_to_coal_block",
+        "inputs": [{ "item": "birch_wood", "amount": 1.0 }, { "item": "tnt", "amount": 1.0 }],
+        "outputs": [{ "item": "coal_block", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_smithed_gold_ore_and_coal-copper_ingot_to_gold_ore_powder",
+        "inputs": [{ "item": "smithed_gold_ore", "amount": 1.0 }, { "item": "coal-copper_ingot", "amount": 1.0 }],
+        "outputs": [{ "item": "gold_ore_powder", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_dehydrated_cluster_and_coal_to_inactive_cluster",
+        "inputs": [{ "item": "dehydrated_cluster", "amount": 1.0 }, { "item": "coal", "amount": 1.0 }],
+        "outputs": [{ "item": "inactive_cluster", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_gold_ore_and_tnt_to_gold_ingot",
+        "inputs": [{ "item": "gold_ore", "amount": 1.0 }, { "item": "tnt", "amount": 1.0 }],
+        "outputs": [{ "item": "gold_ingot", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_end_stone_to_raw_smooth_end_stone",
+        "inputs": [{ "item": "end_stone", "amount": 1.0 }, { "item": "end_stone", "amount": 1.0 }],
+        "outputs": [{ "item": "raw_smooth_end_stone", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_uncoagulated_mote_to_uncoagulated_chunk",
+        "inputs": [{ "item": "uncoagulated_mote", "amount": 1.0 }, { "item": "uncoagulated_mote", "amount": 1.0 }],
+        "outputs": [{ "item": "uncoagulated_chunk", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_uncoagulated_chunk_to_uncoagulated_lump",
+        "inputs": [{ "item": "uncoagulated_chunk", "amount": 1.0 }, { "item": "uncoagulated_chunk", "amount": 1.0 }],
+        "outputs": [{ "item": "uncoagulated_lump", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_uncoagulated_chunk_to_coagulated_lump",
+        "inputs": [{ "item": "uncoagulated_lump", "amount": 1.0 }, { "item": "uncoagulated_lump", "amount": 1.0 }],
+        "outputs": [{ "item": "coagulated_lump", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_calcified_lump_and_netherrack_to_sparse_nether_quartz",
+        "inputs": [{ "item": "calcified_lump", "amount": 1.0 }, { "item": "netherrack", "amount": 1.0 }],
+        "outputs": [{ "item": "sparse_nether_quartz", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_enhanced_endstone_powder_and_nether_dust_to_nether-end_dust",
+        "inputs": [{ "item": "enhanced_endstone_powder", "amount": 1.0 }, { "item": "nether_dust", "amount": 1.0 }],
+        "outputs": [{ "item": "nether-end_dust", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_quartz_slab_to_quartz_block",
+        "inputs": [{ "item": "quartz_slab", "amount": 1.0 }, { "item": "quartz_slab", "amount": 1.0 }],
+        "outputs": [{ "item": "quartz_block", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_purified_obsidian_shard_and_activated_copper_ingot_to_glowing_obsidian_shard",
+        "inputs": [{ "item": "purified_obsidian_shard", "amount": 1.0 }, { "item": "activated_copper_ingot", "amount": 1.0 }],
+        "outputs": [{ "item": "glowing_obsidian_shard", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_glowing_obsidian_shard_to_glowing_obsidian_block",
+        "inputs": [{ "item": "glowing_obsidian_shard", "amount": 1.0 }, { "item": "glowing_obsidian_shard", "amount": 1.0 }],
+        "outputs": [{ "item": "glowing_obsidian_block", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_hardened_soil_and_iron_ingot_to_ender_pearl_clump",
+        "inputs": [{ "item": "hardened_soil", "amount": 1.0 }, { "item": "iron_ingot", "amount": 1.0 }],
+        "outputs": [{ "item": "ender_pearl_clump", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_ender_pearl_and_blaze_powder_to_eye_of_ender",
+        "inputs": [{ "item": "ender_pearl", "amount": 1.0 }, { "item": "blaze_powder", "amount": 1.0 }],
+        "outputs": [{ "item": "eye_of_ender", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_spruce_log_to_spruce_wood",
+        "inputs": [{ "item": "spruce_log", "amount": 1.0 }, { "item": "spruce_log", "amount": 1.0 }],
+        "outputs": [{ "item": "spruce_wood", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_spruce_wood_and_iron_axe_to_stripped_spruce_wood",
+        "inputs": [{ "item": "spruce_wood", "amount": 1.0 }, { "item": "iron_axe", "amount": 1.0 }],
+        "outputs": [{ "item": "stripped_spruce_wood", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_stripped_spruce_wood_and_iron_axe_to_refined_spruce_wood",
+        "inputs": [{ "item": "stripped_spruce_wood", "amount": 1.0 }, { "item": "iron_axe", "amount": 1.0 }],
+        "outputs": [{ "item": "refined_spruce_wood", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_refined_spruce_wood_and_iron_axe_to_spruce_planks",
+        "inputs": [{ "item": "refined_spruce_wood", "amount": 1.0 }, { "item": "iron_axe", "amount": 1.0 }],
+        "outputs": [{ "item": "spruce_planks", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_spruce_planks_and_iron_axe_to_chopped_spruce_planks",
+        "inputs": [{ "item": "spruce_planks", "amount": 1.0 }, { "item": "iron_axe", "amount": 1.0 }],
+        "outputs": [{ "item": "chopped_spruce_planks", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_chopped_spruce_planks_and_iron_axe_to_spruce_slab",
+        "inputs": [{ "item": "chopped_spruce_planks", "amount": 1.0 }, { "item": "iron_axe", "amount": 1.0 }],
+        "outputs": [{ "item": "spruce_slab", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_spruce_boat_and_chest_to_spruce_boat_with_chest",
+        "inputs": [{ "item": "spruce_boat", "amount": 1.0 }, { "item": "chest", "amount": 1.0 }],
+        "outputs": [{ "item": "spruce_boat_with_chest", "amount": 1.0 }]
+      }
+    ]
+  },
+
+  {
+    "name": "CRUSHER",
+    "image": "crusher.png",
+    "inputSlots": 2,
+    "outputSlots": 1,
+    "recipes": [
+      {
+        "id": "crusher_smooth_stone_and_anvil_to_gravel",
+        "inputs": [{ "item": "smooth_stone", "amount": 1.0 }, { "item": "anvil", "amount": 1.0 }],
+        "outputs": [{ "item": "gravel", "amount": 2.0 }]
+      },
+      {
+        "id": "crusher_nether_brick_slab_and_anvil_to_nether_brick",
+        "inputs": [{ "item": "nether_brick_slab", "amount": 1.0 }, { "item": "anvil", "amount": 1.0 }],
+        "outputs": [{ "item": "nether_brick", "amount": 4.0 }]
+      },
+      {
+        "id": "crusher_cracked_nether_bricks_and_anvil_to_nether_dust",
+        "inputs": [{ "item": "cracked_nether_bricks", "amount": 1.0 }, { "item": "anvil", "amount": 1.0 }],
+        "outputs": [{ "item": "nether_dust", "amount": 1.0 }]
+      },
+      {
+        "id": "crusher_end_stone_and_anvil_to_unfiltered_endstone_powder",
+        "inputs": [{ "item": "end_stone", "amount": 1.0 }, { "item": "anvil", "amount": 1.0 }],
+        "outputs": [{ "item": "unfiltered_endstone_powder", "amount": 1.0 }]
+      },
+      {
+        "id": "crusher_sparse_nether_quartz_and_anvil_to_quartz_slab",
+        "inputs": [{ "item": "sparse_nether_quartz", "amount": 1.0 }, { "item": "anvil", "amount": 1.0 }],
+        "outputs": [{ "item": "quartz_slab", "amount": 1.0 }]
+      },
+      {
+        "id": "crusher_obsidian_to_obsidian_shard",
+        "inputs": [{ "item": "obsidian", "amount": 1.0 }, { "item": "obsidian", "amount": 1.0 }],
+        "outputs": [{ "item": "obsidian_shard", "amount": 5.0 }]
+      },
+      {
+        "id": "crusher_blaze_rod_and_anvil_to_blaze_powder",
+        "inputs": [{ "item": "blaze_rod", "amount": 1.0 }, { "item": "anvil", "amount": 1.0 }],
+        "outputs": [{ "item": "blaze_powder", "amount": 2.0 }]
+      },
+      {
+        "id": "crusher_glowing_obsidian_block_and_anvil_to_glowing_obsidian_powder",
+        "inputs": [{ "item": "glowing_obsidian_block", "amount": 1.0 }, { "item": "anvil", "amount": 1.0 }],
+        "outputs": [{ "item": "glowing_obsidian_powder", "amount": 1.0 }]
+      },
+      {
+        "id": "crusher_spruce_planks_and_obsidian_to_spruce_wood_shavings",
+        "inputs": [{ "item": "spruce_planks", "amount": 1.0 }, { "item": "obsidian", "amount": 1.0 }],
+        "outputs": [{ "item": "spruce_wood_shavings", "amount": 4.0 }]
+      },
+      {
+        "id": "crusher_end_crystal_and_obsidian_to_ghast_tear",
+        "inputs": [{ "item": "end_crystal", "amount": 1.0 }, { "item": "obsidian", "amount": 1.0 }],
+        "outputs": [{ "item": "ghast_tear", "amount": 1.0 }]
+      }
+    ]
+  },
+
+  {
+    "name": "ZAPPER",
+    "image": "zapper.png",
+    "inputSlots": 1,
+    "outputSlots": 1,
+    "recipes": [
+      {
+        "id": "zapper_stone_bricks_to_chiseled_stone_bricks",
+        "inputs": [{ "item": "stone_bricks", "amount": 1.0 }],
+        "outputs": [{ "item": "chiseled_stone_bricks", "amount": 1.0 }]
+      },
+      {
+        "id": "zapper_nether_brick_block_to_red_nether_bricks",
+        "inputs": [{ "item": "nether_brick_block", "amount": 1.0 }],
+        "outputs": [{ "item": "red_nether_bricks", "amount": 1.0 }]
+      },
+      {
+        "id": "zapper_copper_ingot_to_activated_copper_chunk",
+        "inputs": [{ "item": "copper_ingot", "amount": 1.0 }],
+        "outputs": [{ "item": "activated_copper_chunk", "amount": 1.0 }]
+      },
+      {
+        "id": "zapper_raw_smooth_end_stone_to_smooth_end_stone",
+        "inputs": [{ "item": "raw_smooth_end_stone", "amount": 1.0 }],
+        "outputs": [{ "item": "smooth_end_stone", "amount": 1.0 }]
+      },
+      {
+        "id": "zapper_torch_to_enchanted_torch",
+        "inputs": [{ "item": "torch", "amount": 1.0 }],
+        "outputs": [{ "item": "enchanted_torch", "amount": 1.0 }]
+      },
+      {
+        "id": "zapper_coagulated_lump_to_calcified_lump",
+        "inputs": [{ "item": "coagulated_lump", "amount": 1.0 }],
+        "outputs": [{ "item": "calcified_lump", "amount": 1.0 }]
+      },
+      {
+        "id": "zapper_filtered_endstone_powder_to_enhanced_endstone_powder",
+        "inputs": [{ "item": "filtered_endstone_powder", "amount": 1.0 }],
+        "outputs": [{ "item": "enhanced_endstone_powder", "amount": 1.0 }]
+      },
+      {
+        "id": "zapper_unrefined_volcano_rock_to_refined_volcano_rock",
+        "inputs": [{ "item": "unrefined_volcano_rock", "amount": 1.0 }],
+        "outputs": [{ "item": "refined_volcano_rock", "amount": 1.0 }]
+      },
+      {
+        "id": "zapper_enriched_volcano_rock_to_obsidian",
+        "inputs": [{ "item": "enriched_volcano_rock", "amount": 1.0 }],
+        "outputs": [{ "item": "obsidian", "amount": 1.0 }]
+      },
+      {
+        "id": "zapper_quartz_block_to_chiseled_quartz",
+        "inputs": [{ "item": "quartz_block", "amount": 1.0 }],
+        "outputs": [{ "item": "chiseled_quartz", "amount": 1.0 }]
+      },
+      {
+        "id": "zapper_empty_rod_to_blaze_rod",
+        "inputs": [{ "item": "empty_rod", "amount": 1.0 }],
+        "outputs": [{ "item": "blaze_rod", "amount": 1.0 }]
+      },
+      {
+        "id": "zapper_unchiseled_purpur_to_chiseled_purpur",
+        "inputs": [{ "item": "unchiseled_purpur", "amount": 1.0 }],
+        "outputs": [{ "item": "chiseled_purpur", "amount": 1.0 }]
+      }
+    ]
+  },
+
+  {
+    "name": "THREE_CRAFTER",
+    "image": "three_crafter.png",
+    "inputSlots": 3,
+    "outputSlots": 1,
+    "recipes": [
+      {
+        "id": "three_crafter_torch_and_charcoal_and_smooth_stone_to_glowstone",
+        "inputs": [{ "item": "torch", "amount": 1.0 }, { "item": "charcoal", "amount": 1.0 }, { "item": "smooth_stone", "amount": 1.0 }],
+        "outputs": [{ "item": "glowstone", "amount": 1.0 }]
+      },
+      {
+        "id": "three_crafter_coal_and_coal-copper_blend_and_charcoal_to_gunpowder",
+        "inputs": [{ "item": "coal", "amount": 1.0 }, { "item": "coal-copper_blend", "amount": 1.0 }, { "item": "charcoal", "amount": 1.0 }],
+        "outputs": [{ "item": "gunpowder", "amount": 2.0 }]
+      },
+      {
+        "id": "three_crafter_iron_ingot_and_stick_to_iron_axe",
+        "inputs": [{ "item": "iron_ingot", "amount": 1.0 }, { "item": "stick", "amount": 1.0 }, { "item": "iron_ingot", "amount": 1.0 }],
+        "outputs": [{ "item": "iron_axe", "amount": 5.0 }]
+      },
+      {
+        "id": "three_crafter_iron_ingot_to_anvil",
+        "inputs": [{ "item": "iron_ingot", "amount": 1.0 }, { "item": "iron_ingot", "amount": 1.0 }, { "item": "iron_ingot", "amount": 1.0 }],
+        "outputs": [{ "item": "anvil", "amount": 5.0 }]
+      },
+      {
+        "id": "three_crafter_iron_ingot_and_copper_ingot_and_coal_block_to_iron_door",
+        "inputs": [{ "item": "iron_ingot", "amount": 1.0 }, { "item": "copper_ingot", "amount": 1.0 }, { "item": "coal_block", "amount": 1.0 }],
+        "outputs": [{ "item": "iron_door", "amount": 1.0 }]
+      },
+      {
+        "id": "three_crafter_clean_glass_to_glass_bottle",
+        "inputs": [{ "item": "clean_glass", "amount": 1.0 }, { "item": "clean_glass", "amount": 1.0 }, { "item": "clean_glass", "amount": 1.0 }],
+        "outputs": [{ "item": "glass_bottle", "amount": 15.0 }]
+      },
+      {
+        "id": "three_crafter_netherrack_and_red_nether_bricks_and_lava_bottle_to_magma_block",
+        "inputs": [{ "item": "netherrack", "amount": 1.0 }, { "item": "red_nether_bricks", "amount": 1.0 }, { "item": "lava_bottle", "amount": 1.0 }],
+        "outputs": [{ "item": "magma_block", "amount": 1.0 }]
+      },
+      {
+        "id": "three_crafter_activated_copper_ingot_and_refined_volcano_rock_and_cobblestone_to_enriched_volcano_rock",
+        "inputs": [{ "item": "activated_copper_ingot", "amount": 1.0 }, { "item": "refined_volcano_rock", "amount": 1.0 }, { "item": "cobblestone", "amount": 1.0 }],
+        "outputs": [{ "item": "enriched_volcano_rock", "amount": 1.0 }]
+      },
+      {
+        "id": "three_crafter_ender_glass_and_gold_ingot_and_glowstone_to_unchiseled_purpur",
+        "inputs": [{ "item": "ender_glass", "amount": 1.0 }, { "item": "gold_ingot", "amount": 1.0 }, { "item": "glowstone", "amount": 1.0 }],
+        "outputs": [{ "item": "unchiseled_purpur", "amount": 1.0 }]
+      },
+      {
+        "id": "three_crafter_end_stone_and_unchiseled_purpur_to_end_rod",
+        "inputs": [{ "item": "end_stone", "amount": 1.0 }, { "item": "unchiseled_purpur", "amount": 1.0 }, { "item": "end_stone", "amount": 1.0 }],
+        "outputs": [{ "item": "end_rod", "amount": 4.0 }]
+      },
+      {
+        "id": "three_crafter_clean_glass_and_eye_of_ender_to_end_crystal",
+        "inputs": [{ "item": "clean_glass", "amount": 1.0 }, { "item": "eye_of_ender", "amount": 1.0 }, { "item": "clean_glass", "amount": 1.0 }],
+        "outputs": [{ "item": "end_crystal", "amount": 1.0 }]
+      },
+      {
+        "id": "three_crafter_stick_and_spruce_slab_to_wooden_shovel",
+        "inputs": [{ "item": "stick", "amount": 1.0 }, { "item": "spruce_slab", "amount": 1.0 }, { "item": "stick", "amount": 1.0 }],
+        "outputs": [{ "item": "wooden_shovel", "amount": 1.0 }]
+      },
+      {
+        "id": "three_crafter_iron_ingot_and_spruce_slab_and_copper_ingot_to_spruce_trapdoor",
+        "inputs": [{ "item": "iron_ingot", "amount": 1.0 }, { "item": "spruce_slab", "amount": 1.0 }, { "item": "copper_ingot", "amount": 1.0 }],
+        "outputs": [{ "item": "spruce_trapdoor", "amount": 1.0 }]
+      },
+      {
+        "id": "three_crafter_spruce_trapdoor_and_copper_ingot_to_spruce_door",
+        "inputs": [{ "item": "spruce_trapdoor", "amount": 1.0 }, { "item": "copper_ingot", "amount": 1.0 }, { "item": "spruce_trapdoor", "amount": 1.0 }],
+        "outputs": [{ "item": "spruce_door", "amount": 1.0 }]
+      },
+      {
+        "id": "three_crafter_spruce_plate_to_chest",
+        "inputs": [{ "item": "spruce_plate", "amount": 1.0 }, { "item": "spruce_plate", "amount": 1.0 }, { "item": "spruce_plate", "amount": 1.0 }],
+        "outputs": [{ "item": "chest", "amount": 1.0 }]
+      },
+      {
+        "id": "three_crafter_ghast_tear_to_ghast_tear_cluster",
+        "inputs": [{ "item": "ghast_tear", "amount": 1.0 }, { "item": "ghast_tear", "amount": 1.0 }, { "item": "ghast_tear", "amount": 1.0 }],
+        "outputs": [{ "item": "ghast_tear_cluster", "amount": 1.0 }]
+      },
+      {
+        "id": "three_crafter_wooden_shovel_and_spruce_door_to_spruce_boat",
+        "inputs": [{ "item": "wooden_shovel", "amount": 1.0 }, { "item": "spruce_door", "amount": 1.0 }, { "item": "wooden_shovel", "amount": 1.0 }],
+        "outputs": [{ "item": "spruce_boat", "amount": 1.0 }]
+      },
+      {
+        "id": "three_crafter_ghast_tear_cluster_and_ender-infused_soil_to_dried_ghast",
+        "inputs": [{ "item": "ghast_tear_cluster", "amount": 1.0 }, { "item": "ender-infused_soil", "amount": 1.0 }, { "item": "ghast_tear_cluster", "amount": 1.0 }],
+        "outputs": [{ "item": "dried_ghast", "amount": 6.0 }]
+      }
+    ]
+  },
+
+  {
+    "name": "WASHER",
+    "image": "washer.png",
+    "inputSlots": 1,
+    "outputSlots": 1,
+    "recipes": [
+      {
+        "id": "washer_birch_planks_to_tannin_slice",
+        "inputs": [{ "item": "birch_planks", "amount": 1.0 }],
+        "outputs": [{ "item": "tannin_slice", "amount": 1.0 }]
+      },
+      {
+        "id": "washer_inactive_cluster_to_active_hyphae_cluster",
+        "inputs": [{ "item": "inactive_cluster", "amount": 1.0 }],
+        "outputs": [{ "item": "active_hyphae_cluster", "amount": 1.0 }]
+      },
+      {
+        "id": "washer_gold_ore_powder_to_gold_ore",
+        "inputs": [{ "item": "gold_ore_powder", "amount": 1.0 }],
+        "outputs": [{ "item": "gold_ore", "amount": 1.0 }]
+      },
+      {
+        "id": "washer_unfiltered_endstone_powder_to_filtered_endstone_powder",
+        "inputs": [{ "item": "unfiltered_endstone_powder", "amount": 1.0 }],
+        "outputs": [{ "item": "filtered_endstone_powder", "amount": 1.0 }]
+      },
+      {
+        "id": "washer_glass_bottle_to_water_bottle",
+        "inputs": [{ "item": "glass_bottle", "amount": 1.0 }],
+        "outputs": [{ "item": "water_bottle", "amount": 1.0 }]
+      },
+      {
+        "id": "washer_ender_glass_to_clean_glass",
+        "inputs": [{ "item": "ender_glass", "amount": 1.0 }],
+        "outputs": [{ "item": "clean_glass", "amount": 1.0 }]
+      },
+      {
+        "id": "washer_ender-infused_soil_to_hardened_soil",
+        "inputs": [{ "item": "ender-infused_soil", "amount": 1.0 }],
+        "outputs": [{ "item": "hardened_soil", "amount": 1.0 }]
+      },
+      {
+        "id": "washer_spruce_wood_shavings_to_spruce_plate",
+        "inputs": [{ "item": "spruce_wood_shavings", "amount": 1.0 }],
+        "outputs": [{ "item": "spruce_plate", "amount": 1.0 }]
+      }
+    ]
+  },
+
+  {
+    "name": "FLASHBAKER",
+    "image": "flashbaker.png",
+    "inputSlots": 1,
+    "outputSlots": 1,
+    "recipes": [
+      {
+        "id": "flashbacker_netherrack_to_nether_brick_block",
+        "inputs": [{ "item": "netherrack", "amount": 1.0 }],
+        "outputs": [{ "item": "nether_brick_block", "amount": 1.0 }]
+      },
+      {
+        "id": "flashbacker_activated_copper_chunk_to_activated_copper_ingot",
+        "inputs": [{ "item": "activated_copper_chunk", "amount": 1.0 }],
+        "outputs": [{ "item": "activated_copper_ingot", "amount": 1.0 }]
+      },
+      {
+        "id": "flashbacker_glass_bottle_to_lava_bottle",
+        "inputs": [{ "item": "glass_bottle", "amount": 1.0 }],
+        "outputs": [{ "item": "lava_bottle", "amount": 1.0 }]
+      },
+      {
+        "id": "flashbacker_nether-end_dust_to_unrefined_volcano_rock",
+        "inputs": [{ "item": "nether-end_dust", "amount": 1.0 }],
+        "outputs": [{ "item": "unrefined_volcano_rock", "amount": 1.0 }]
+      },
+      {
+        "id": "flashbacker_ender_glass_to_cloudy_end_glass",
+        "inputs": [{ "item": "ender_glass", "amount": 1.0 }],
+        "outputs": [{ "item": "cloudy_end_glass", "amount": 1.0 }]
+      },
+      {
+        "id": "flashbacker_glowing_obsidian_powder_to_glowing_obsidian",
+        "inputs": [{ "item": "glowing_obsidian_powder", "amount": 1.0 }],
+        "outputs": [{ "item": "glowing_obsidian", "amount": 1.0 }]
+      }
+    ]
+  },
+
+  {
+    "name": "EXPLOSIVE_FURNACE",
+    "image": "explosive_furnace.png",
+    "inputSlots": 1,
+    "outputSlots": 1,
+    "recipes": [
+      {
+        "id": "explosive_furnace_birch_wood_to_coal_block",
+        "inputs": [{ "item": "birch_wood", "amount": 1.0 }],
+        "outputs": [{ "item": "coal_block", "amount": 1.0 }]
+      },
+      {
+        "id": "explosive_furnace_gold_ore_to_gold_ingot",
+        "inputs": [{ "item": "gold_ore", "amount": 1.0 }],
+        "outputs": [{ "item": "gold_ingot", "amount": 1.0 }]
+      }
+    ]
+  },
+
+  {
+    "name": "ENCHANTER",
+    "image": "enchanter.png",
+    "inputSlots": 3,
+    "outputSlots": 1,
+    "recipes": [
+      {
+        "id": "enchanter_nether_brick_and_gold_ingot_and_birch_planks_to_uncoagulated_mote",
+        "inputs": [{ "item": "nether_brick", "amount": 1.0 }, { "item": "gold_ingot", "amount": 1.0 }, { "item": "birch_planks", "amount": 1.0 }],
+        "outputs": [{ "item": "uncoagulated_mote", "amount": 4.0 }]
+      },
+      {
+        "id": "enchanter_chiseled_stone_bricks_and_smooth_end_stone_and_magma_block_to_antimatter",
+        "inputs": [{ "item": "chiseled_stone_bricks", "amount": 1.0 }, { "item": "smooth_end_stone", "amount": 1.0 }, { "item": "magma_block", "amount": 1.0 }],
+        "outputs": [{ "item": "antimatter", "amount": 1.0 }]
+      },
+      {
+        "id": "enchanter_cloudy_end_glass_and_end_rod_and_enchanted_torch_to_empty_rod",
+        "inputs": [{ "item": "cloudy_end_glass", "amount": 1.0 }, { "item": "end_rod", "amount": 1.0 }, { "item": "enchanted_torch", "amount": 1.0 }],
+        "outputs": [{ "item": "empty_rod", "amount": 1.0 }]
+      },
+      {
+        "id": "enchanter_obsidian_shard_and_lava_bottle_and_coal_block_to_purified_obsidian_shard",
+        "inputs": [{ "item": "obsidian_shard", "amount": 1.0 }, { "item": "lava_bottle", "amount": 1.0 }, { "item": "coal_block", "amount": 1.0 }],
+        "outputs": [{ "item": "purified_obsidian_shard", "amount": 1.0 }]
+      },
+      {
+        "id": "enchanter_chiseled_purpur_and_quartz_and_ender_glass_to_ender-infused_soil",
+        "inputs": [{ "item": "chiseled_purpur", "amount": 1.0 }, { "item": "quartz", "amount": 1.0 }, { "item": "ender_glass", "amount": 1.0 }],
+        "outputs": [{ "item": "ender-infused_soil", "amount": 1.0 }]
+      },
+      {
+        "id": "enchanter_glass_bottle_and_dried_ghast_and_water_bottle_to_ghast_soul",
+        "inputs": [{ "item": "glass_bottle", "amount": 1.0 }, { "item": "dried_ghast", "amount": 1.0 }, { "item": "water_bottle", "amount": 1.0 }],
+        "outputs": [{ "item": "ghast_soul", "amount": 1.0 }]
+      },
+      {
+        "id": "enchanter_antimatter_and_ghast_soul_and_glowing_obsidian_to_bedrock",
+        "inputs": [{ "item": "antimatter", "amount": 1.0 }, { "item": "ghast_soul", "amount": 1.0 }, { "item": "glowing_obsidian", "amount": 1.0 }],
+        "outputs": [{ "item": "bedrock", "amount": 1.0 }]
+      }
+    ]
+  }
+]
