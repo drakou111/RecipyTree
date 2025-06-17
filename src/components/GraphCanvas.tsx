@@ -30,6 +30,7 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
     const [dragStart, setDragStart] = useState<{ x: number; y: number } | null>(null);
     const [selectedItem, setSelectedItem] = useState<Item | null>(null);
     const [hasMoved, setHasMoved] = useState(false);
+    const [focusItem, setFocusItem] = useState<Item | null>(null);
     const itemPosRef = useRef<Map<Item, { x: number; y: number }>>(new Map());
 
     const allItems = Array.from(graph.items.values());
@@ -54,7 +55,7 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
         )
         : null;
     const allItemsFrom = selectedItem ? graph.itemsFrom(selectedItem, unlockedMachines) : [];
-    
+
 
     // Compute requirements map for bestPath
     const requirements: Map<Item, number> = bestPath && selectedItem ? graph.computeRequirementsFromPath(bestPath, selectedItem, targetAmount) : new Map();
@@ -77,22 +78,6 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
         );
         ctx.imageSmoothingEnabled = false;
 
-        // Layout items
-        const depthMap = graph.computeDepths();
-        const depths = Array.from(new Set(depthMap.values())).sort((a, b) => a - b);
-        const itemsByDepth = new Map<number, Item[]>();
-        depths.forEach((d) => itemsByDepth.set(d, []));
-        for (const [item, depth] of depthMap.entries()) {
-            itemsByDepth.get(depth)!.push(item);
-        }
-        const colW = 150, rowH = 100;
-        itemPosRef.current.clear();
-        depths.forEach((d, i) => {
-            itemsByDepth.get(d)!.forEach((item, j) => {
-                itemPosRef.current.set(item, { x: i * colW, y: j * rowH });
-            });
-        });
-
         // Prepare templates
         const itemTemplate = document.createElement("canvas");
         itemTemplate.width = itemTemplate.height = 32;
@@ -114,12 +99,27 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
         const allEdges = new Set<string>();
         const bestEdges = new Set<string>();
         const fromEdges = new Set<string>();
+
+        let visibleItems = new Set(allItems);
+        let visibleEdges = new Set(allEdges);
+        
+        if (focusItem) {
+            visibleItems = new Set();
+            visibleEdges = new Set();
+        }
+
         if (bestPath) {
             for (const path of allPaths) {
                 for (const step of path.steps) {
                     for (const [inItem] of step.inputs) {
                         for (const [outItem] of step.outputs) {
-                            allEdges.add(`${inItem.id}->${outItem.id}`);
+                            const key = `${inItem.id}->${outItem.id}`;
+                            allEdges.add(key);
+                            if (focusItem) {
+                                visibleEdges.add(key);
+                                visibleItems.add(inItem);
+                                visibleItems.add(outItem);
+                            }
                         }
                     }
                 }
@@ -127,7 +127,13 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
             for (const step of bestPath.steps) {
                 for (const [inItem] of step.inputs) {
                     for (const [outItem] of step.outputs) {
-                        bestEdges.add(`${inItem.id}->${outItem.id}`);
+                        const key = `${inItem.id}->${outItem.id}`;
+                        bestEdges.add(key);
+                        if (focusItem) {
+                            visibleEdges.add(key);
+                            visibleItems.add(inItem);
+                            visibleItems.add(outItem);
+                        }
                     }
                 }
             }
@@ -136,11 +142,40 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
                 for (const recipe of recipes) {
                     const outputs = recipe.outputs;
                     for (const [output, _] of outputs) {
-                        fromEdges.add(`${item.id}->${output.id}`);
+                        const key = `${item.id}->${output.id}`
+                        fromEdges.add(key);
+                        if (focusItem) {
+                            visibleEdges.add(key);
+                            visibleItems.add(item);
+                            visibleItems.add(output);
+                        }
                     }
                 }
             }
         }
+
+
+
+        // Layout items
+        const fullDepthMap = graph.computeDepths();
+        const depthMap = new Map<Item, number>();
+        fullDepthMap.forEach((depth, item) => {
+            if (visibleItems.has(item)) depthMap.set(item, depth);
+        });
+        const depths = Array.from(new Set(depthMap.values())).sort((a, b) => a - b);
+        const itemsByDepth = new Map<number, Item[]>();
+        depths.forEach((d) => itemsByDepth.set(d, []));
+        for (const [item, depth] of depthMap.entries()) {
+            itemsByDepth.get(depth)!.push(item);
+        }
+        const colW = 150, rowH = 100;
+        itemPosRef.current.clear();
+        depths.forEach((d, i) => {
+            itemsByDepth.get(d)!.forEach((item, j) => {
+                itemPosRef.current.set(item, { x: i * colW, y: j * rowH });
+            });
+        });
+
 
         // Draw edges with machine icons on bestEdges
         for (const recipe of allRecipes) {
@@ -151,6 +186,8 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
             for (const [inItem] of recipe.inputs) {
                 for (const [outItem] of recipe.outputs) {
                     const key = `${inItem.id}->${outItem.id}`;
+                    if (focusItem && !visibleEdges.has(key)) continue;
+
                     const from = itemPosRef.current.get(inItem)!;
                     const to = itemPosRef.current.get(outItem)!;
 
@@ -162,7 +199,7 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
                         ctx.strokeStyle = "red";
                         ctx.lineWidth = 1;
                     } else if (fromEdges.has(key)) {
-                        ctx.strokeStyle="green";
+                        ctx.strokeStyle = "green";
                         ctx.lineWidth = 3;
                     }
                     else {
@@ -174,18 +211,20 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
                     ctx.stroke();
 
                     // Draw machine icon for bestEdges only
-                    if ((bestEdges.has(key) || fromEdges.has(key)) && recipe.machine) {
+                    if ((allEdges.has(key) || fromEdges.has(key)) && recipe.machine) {
                         const midX = (from.x + to.x) / 2 + 16;
                         const midY = (from.y + to.y) / 2 + 16;
                         const img = recipe.machine.image ? recipe.machine.image : machineTemplate;
                         ctx.drawImage(img, midX - 12, midY - 12, 24, 24);
-                        
+
                     }
                 }
             }
         }
 
         for (const item of allItems) {
+            if (!visibleItems.has(item)) continue;
+
             const pos = itemPosRef.current.get(item)!;
 
             ctx.globalAlpha = reachableItems.has(item) ? 1 : 0.3;
@@ -209,6 +248,7 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
         starting,
         selectedItem,
         targetAmount,
+        focusItem
     ]);
 
     // Wheel zoom
@@ -218,10 +258,10 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
             e.preventDefault(); e.stopPropagation();
             const zoom = e.deltaY < 0 ? 1.1 : 0.9;
             const newScale = scale * zoom;
-            const cx = width/2, cy = height/2;
-            const wx = (cx - offset.x)/scale, wy = (cy - offset.y)/scale;
+            const cx = width / 2, cy = height / 2;
+            const wx = (cx - offset.x) / scale, wy = (cy - offset.y) / scale;
             setScale(newScale);
-            setOffset({ x: cx - wx*newScale, y: cy - wy*newScale });
+            setOffset({ x: cx - wx * newScale, y: cy - wy * newScale });
         };
         canvas.addEventListener("wheel", handler, { passive: false });
         return () => canvas.removeEventListener("wheel", handler);
@@ -237,28 +277,31 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
         if (!dragging || !dragStart) return;
         const dx = e.clientX - dragStart.x;
         const dy = e.clientY - dragStart.y;
-        if (Math.hypot(dx-offset.x, dy-offset.y) > 3) setHasMoved(true);
+        if (Math.hypot(dx - offset.x, dy - offset.y) > 3) setHasMoved(true);
         setOffset({ x: dx, y: dy });
     };
     const onMouseUp = () => setDragging(false);
 
     const onClick = (e: React.MouseEvent) => {
         if (hasMoved) return;
+        if (focusItem) {
+        }
         const canvas = canvasRef.current!;
         const rect = canvas.getBoundingClientRect();
-        const sx = canvas.width/rect.width;
-        const sy = canvas.height/rect.height;
-        const cx = (e.clientX - rect.left)*sx;
-        const cy = (e.clientY - rect.top)*sy;
-        const wx = (cx - offset.x)/scale;
-        const wy = (cy - offset.y)/scale;
-        for (const [item,pos] of itemPosRef.current.entries()) {
-            if (wx>=pos.x && wx<=pos.x+32 && wy>=pos.y && wy<=pos.y+32) {
+        const sx = canvas.width / rect.width;
+        const sy = canvas.height / rect.height;
+        const cx = (e.clientX - rect.left) * sx;
+        const cy = (e.clientY - rect.top) * sy;
+        const wx = (cx - offset.x) / scale;
+        const wy = (cy - offset.y) / scale;
+        for (const [item, pos] of itemPosRef.current.entries()) {
+            if (wx >= pos.x && wx <= pos.x + 32 && wy >= pos.y && wy <= pos.y + 32) {
                 setSelectedItem(item);
                 return;
             }
         }
         setSelectedItem(null);
+        setFocusItem(null);
     };
 
     function formatPrice(num: number): string {
@@ -273,10 +316,10 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
 
         for (const { value, suffix } of units) {
             if (num >= value) {
-            const formatted = num / value;
-            return formatted % 1 === 0
-                ? `${formatted}${suffix}`
-                : `${formatted.toFixed(1)}${suffix}`;
+                const formatted = num / value;
+                return formatted % 1 === 0
+                    ? `${formatted}${suffix}`
+                    : `${formatted.toFixed(1)}${suffix}`;
             }
         }
 
@@ -284,29 +327,70 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
     }
 
     return (
-  <div style={{ position: "relative", width, height }}>
-    <canvas
-      ref={canvasRef}
-      width={width}
-      height={height}
-      className={`canvas ${dragging ? 'grabbing' : 'grab'}`}
-      onMouseDown={onMouseDown}
-      onMouseMove={onMouseMove}
-      onMouseUp={onMouseUp}
-      onClick={onClick}
-    />
+        <div style={{ position: "relative", width, height }}>
+            <canvas
+                ref={canvasRef}
+                width={width}
+                height={height}
+                className={`canvas ${dragging ? 'grabbing' : 'grab'}`}
+                onMouseDown={onMouseDown}
+                onMouseMove={onMouseMove}
+                onMouseUp={onMouseUp}
+                onClick={onClick}
+                onDoubleClick={(e) => {
+                    if (selectedItem) setFocusItem(focusItem?.id === selectedItem.id ? null : selectedItem);
+                    else setFocusItem(null);
+                }}
+            />
 
-    {selectedItem && (
-      <div className="item-info">
-        {selectedItem.image && (<img src={selectedItem.image.src} alt={selectedItem.name} className="item-image-info"/>)}
-        <div className="item-name-info"><b>{selectedItem.name}</b></div>
-        <div className="item-price-info"><b>Price: ${formatPrice(selectedItem.price)}</b></div>
-        <button onClick={() => setSelectedItem(null)} className="close-button">
-          Close
-        </button>
-      </div>
-    )}
-  </div>
-);
+            {selectedItem && (
+                <div className="item-info">
+                    {selectedItem.image && (<img src={selectedItem.image.src} alt={selectedItem.name} className="item-image-info" />)}
+                    <div className="item-name-info"><b>{selectedItem.name}</b></div>
+                    <div className="item-price-info"><b>Price: ${formatPrice(selectedItem.price)}</b></div>
+                    <button onClick={() => setSelectedItem(null)} className="close-button">
+                        Close
+                    </button>
+                </div>
+            )}
+
+            {bestPath && bestPath.steps.length >= 1 && (
+                <div className="recipe-steps-panel">
+                {bestPath.steps.map((step, idx) => (
+                    <div key={idx} className="recipe-step">
+                    <div className="inputs">
+                        {Array.from(step.inputs.keys()).map((i) => (
+                        <img
+                            key={i.id}
+                            src={i.image?.src}
+                            alt={i.name}
+                            className="step-item"
+                            title={i.name}
+                        />
+                        ))}
+                    </div>
+                    <span className="arrow">➔</span>
+                    <img
+                        src={step.machine.image?.src || ""}
+                        alt={step.machine.name}
+                        className="step-machine"
+                    />
+                    <span className="arrow">➔</span>
+                    <div className="outputs">
+                        {Array.from(step.outputs.keys()).map((o) => (
+                        <img
+                            key={o.id}
+                            src={o.image?.src}
+                            alt={o.name}
+                            className="step-item"
+                        />
+                        ))}
+                    </div>
+                    </div>
+                ))}
+                </div>
+            )}
+        </div>
+    );
 
 };

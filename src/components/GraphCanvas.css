@@ -30,7 +30,7 @@
     border: .1em solid var(--border);
     border-radius: 2em;
     padding: 1.5em;
-    box-shadow: 0 4px 10px var(--shadow);
+    box-shadow: 0 0.2em 1em var(--shadow);
     z-index: 10;
     min-width: 150;
     transition: background-color 250ms linear, border 250ms linear, color 250ms linear;
@@ -48,7 +48,7 @@
 .canvas {
     border-radius: 3em;
     border: .2em solid var(--border);
-    transition: border 250ms linear;
+    transition: background-color 250ms linear, border 250ms linear;
 }
 
 .canvas.grabbing {
@@ -57,4 +57,81 @@
 
 .canvas.grab {
     cursor: grab;
+}
+
+.graph-container {
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+.canvas {
+  display: block;
+  background: var(--background-color, #fafafa);
+  border-radius: 8px;
+}
+
+.canvas.grab {
+  cursor: grab;
+}
+
+.canvas.grabbing {
+  cursor: grabbing;
+}
+
+
+
+
+.recipe-steps-panel {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  max-width: 40em;
+  background-color: var(--background-color);
+  border: .2em solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem;
+  box-shadow: 0 0.2em 1em var(--shadow);
+  overflow-y: auto;
+  max-height: 90%;
+  z-index: 5;
+  transition: background-color 250ms linear, border 250ms linear, color 250ms linear;
+}
+
+.recipe-step {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.recipe-step:last-child {
+  margin-bottom: 0;
+}
+
+.inputs,
+.outputs {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.step-item {
+  width: 2.5em;
+  height: 2.5em;
+  object-fit: contain;
+  image-rendering: pixelated;
+  background: var(--background-color, #fff);
+  transition: background-color 250ms linear, color 250ms linear;
+}
+
+.step-machine {
+  width: 2em;
+  height: 2em;
+  object-fit: contain;
+  image-rendering: pixelated;
+  margin: 0 0.5rem;
+}
+
+.arrow {
+  font-size: 1rem;
+  margin: 0 0.25rem;
+  color: var(--primary-text-color, #333);
 }

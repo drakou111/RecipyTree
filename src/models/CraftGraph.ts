@@ -8,14 +8,14 @@ export class CraftGraph {
     machines: Machine[] = [];
     recipes: Recipe[] = [];
 
-    async loadItems(url = '/items.json') {
+    async loadItems(url = import.meta.env.BASE_URL + '/items.json') {
         const list: { id: string; name: string; price: number; image: string }[] = await fetch(url).then(r => r.json());
         for (const ic of list) {
-            this.items.push(new Item(ic.id, ic.name, ic.price, `/images/${ic.image}`));
+            this.items.push(new Item(ic.id, ic.name, ic.price, import.meta.env.BASE_URL + `/images/${ic.image}`));
         }
     }
 
-    async loadMachines(url = '/machines.json') {
+    async loadMachines(url = import.meta.env.BASE_URL + '/machines.json') {
         type SlotConfig = { item: string; amount: number };
         type RecipeConfig = { id: string; inputs: SlotConfig[]; outputs: SlotConfig[] };
         type MachineConfig = { name: string; image: string; inputSlots: number; outputSlots: number; recipes: RecipeConfig[] };
@@ -23,7 +23,7 @@ export class CraftGraph {
         const cfgs: MachineConfig[] = await fetch(url).then(r => r.json());
         for (const mc of cfgs) {
             console.log(mc.image);
-            const m = new Machine(mc.name, `/images/${mc.image}`, mc.inputSlots, mc.outputSlots);
+            const m = new Machine(mc.name, import.meta.env.BASE_URL + `/images/${mc.image}`, mc.inputSlots, mc.outputSlots);
             this.machines.push(m);
 
             for (const rc of mc.recipes) {
