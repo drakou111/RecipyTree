@@ -172,16 +172,18 @@ export class CraftGraph {
     }
 
     private depthOf(item: Item, seen: Set<Item>): number {
-        if (seen.has(item)) return 0;
-        seen.add(item);
-        let max = 0;
-        for (const r of item.producedBy) {
-            let d = 0;
-            for (const inItem of r.inputs.keys()) {
-                d = Math.max(d, this.depthOf(inItem, seen));
-            }
-            max = Math.max(max, d + 1);
+    if (seen.has(item)) return 0;
+    const newSeen = new Set(seen);  // <-- fresh copy per path
+    newSeen.add(item);
+
+    let max = 0;
+    for (const r of item.producedBy) {
+        let d = 0;
+        for (const inItem of r.inputs.keys()) {
+            d = Math.max(d, this.depthOf(inItem, newSeen));
         }
-        return max;
+        max = Math.max(max, d + 1);
     }
+    return max;
+}
 }
