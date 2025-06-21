@@ -712,5 +712,106 @@
     "name": "Wooden Shovel",
     "price": 187500000000000.0,
     "image": "wooden_shovel.png"
+  },
+
+
+
+
+
+  {
+    "id": "diamond",
+    "name": "Diamond",
+    "price": 100000000000.0,
+    "image": "diamond.png"
+  },
+  {
+    "id": "diamond_block",
+    "name": "Diamond Block",
+    "price": 200000000000.0,
+    "image": "diamond_block.png"
+  },
+  {
+    "id": "iron_block",
+    "name": "Iron Block",
+    "price": 200000000000.0,
+    "image": "iron_block.png"
+  },
+  {
+    "id": "diamond_axe",
+    "name": "Diamond Axe",
+    "price": 350000000000.0,
+    "image": "diamond_axe.png"
+  },
+  {
+    "id": "diamond_chestplate",
+    "name": "Diamond Chestplate",
+    "price": 500000000000.0,
+    "image": "diamond_chestplate.png"
+  },
+  {
+    "id": "bone_block",
+    "name": "Bone Block",
+    "price": 500000000000.0,
+    "image": "bone_block.png"
+  },
+  {
+    "id": "skeleton_skull",
+    "name": "Skeleton Skull",
+    "price": 750000000000.0,
+    "image": "skeleton_skull.png"
+  },
+  {
+    "id": "wither_skeleton_skull",
+    "name": "Wither Skeleton Skull",
+    "price": 2000000000000.0,
+    "image": "wither_skeleton_skull.png"
+  },
+  {
+    "id": "netherite_chip",
+    "name": "Netherite Chip",
+    "price": 300000000000000000.0,
+    "image": "netherite_chip.png"
+  },
+  {
+    "id": "command_block",
+    "name": "Command Block",
+    "price": 500000000000000000.0,
+    "image": "command_block.png"
+  },
+  {
+    "id": "netherite_scrap",
+    "name": "Netherite Scrap",
+    "price": 800000000000000000.0,
+    "image": "netherite_scrap.png"
+  },
+  {
+    "id": "netherite_scraps",
+    "name": "Netherite Scraps",
+    "price": 2500000000000000000.0,
+    "image": "netherite_scraps.png"
+  },
+  {
+    "id": "netherite_ingot",
+    "name": "Netherite Ingot",
+    "price": 3000000000000000000.0,
+    "image": "netherite_ingot.png"
+  },
+  {
+    "id": "netherite_axe",
+    "name": "Netherite Axe",
+    "price": 4000000000000000000.0,
+    "image": "netherite_axe.png"
+  },
+  {
+    "id": "netherite_chestplate",
+    "name": "Netherite Chestplate",
+    "price": 5500000000000000000.0,
+    "image": "netherite_chestplate.png"
+  },
+  {
+    "id": "nether_star",
+    "name": "Nether Star",
+    "price": 50000000000000000000.0,
+    "image": "nether_star.png"
   }
 ]
