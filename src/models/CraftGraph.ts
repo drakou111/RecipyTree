@@ -174,25 +174,45 @@ export class CraftGraph {
         return visited;
     }
 
-    computeDepths(): Map<Item, number> {
+    computeDepths(
+        startingItems: Set<Item>,
+        unlockedMachines: Set<Machine>
+    ): Map<Item, number> {
         const depth = new Map<Item, number>();
-        for (const it of this.items.values()) depth.set(it, this.depthOf(it, new Set()));
+        for (const it of this.items.values()) {
+            depth.set(it, this.depthOf(it, new Set(), startingItems, unlockedMachines));
+        }
         return depth;
     }
 
-    private depthOf(item: Item, seen: Set<Item>): number {
-    if (seen.has(item)) return 0;
-    const newSeen = new Set(seen);
-    newSeen.add(item);
+    private depthOf(
+        item: Item,
+        seen: Set<Item>,
+        startingItems: Set<Item>,
+        unlockedMachines: Set<Machine>
+    ): number {
+        // anything we already have is depth 0
+        if (startingItems.has(item)) return 0;
 
-    let max = 0;
-    for (const r of item.producedBy) {
-        let d = 0;
-        for (const inItem of r.inputs.keys()) {
-            d = Math.max(d, this.depthOf(inItem, newSeen));
+        // break cycles
+        if (seen.has(item)) return 0;
+        const newSeen = new Set(seen);
+        newSeen.add(item);
+
+        let max = 0;
+        for (const r of item.producedBy) {
+            if (!unlockedMachines.has(r.machine)) continue;
+
+            let d = 0;
+            for (const inItem of r.inputs.keys()) {
+                d = Math.max(
+                    d,
+                    this.depthOf(inItem, newSeen, startingItems, unlockedMachines)
+                );
+            }
+            max = Math.max(max, d + 1);
         }
-        max = Math.max(max, d + 1);
+
+        return max;
     }
-    return max;
-}
 }

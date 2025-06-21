@@ -128,9 +128,10 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
 
 
         // Layout items
-        const fullDepthMap = graph.computeDepths();
+        const fullDepthMap = graph.computeDepths(startingItems, unlockedMachines);
         const depthMap = new Map<Item, number>();
         fullDepthMap.forEach((depth, item) => {
+            if (!reachableItems.has(item)) return;
             if (visibleItems.has(item)) depthMap.set(item, depth);
         });
         const depths = Array.from(new Set(depthMap.values())).sort((a, b) => a - b);
@@ -165,10 +166,10 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
                     ctx.beginPath();
                     if (bestEdges.has(key)) {
                         ctx.strokeStyle = "red";
-                        ctx.lineWidth = 3;
+                        ctx.lineWidth = 2;
                     } else if (fromEdges.has(key)) {
                         ctx.strokeStyle = "green";
-                        ctx.lineWidth = 3;
+                        ctx.lineWidth = 2;
                     }
                     else {
                         ctx.strokeStyle = "#aaa";
@@ -192,10 +193,11 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
 
         for (const item of allItems) {
             if (!visibleItems.has(item)) continue;
+            if (!reachableItems.has(item)) continue
 
             const pos = itemPosRef.current.get(item)!;
 
-            ctx.globalAlpha = reachableItems.has(item) ? 1 : 0.3;
+            ctx.globalAlpha = 1;
 
             // Draw the item image
             const img = item.image ?? itemTemplate;
