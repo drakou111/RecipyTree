@@ -49,6 +49,11 @@
         "id": "saw_ender_pearl_clump_to_ender_pearl",
         "inputs": [{ "item": "ender_pearl_clump", "amount": 1.0 }],
         "outputs": [{ "item": "ender_pearl", "amount": 4.0 }]
+      },
+      {
+        "id": "saw_diamond_block_to_diamond",
+        "inputs": [{ "item": "diamond_block", "amount": 1.0 }],
+        "outputs": [{ "item": "diamond", "amount": 3.0 }]
       }
     ]
   },
@@ -270,6 +275,16 @@
         "id": "two_crafter_spruce_boat_and_chest_to_spruce_boat_with_chest",
         "inputs": [{ "item": "spruce_boat", "amount": 1.0 }, { "item": "chest", "amount": 1.0 }],
         "outputs": [{ "item": "spruce_boat_with_chest", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_spruce_boat_with_chest_and_bedrock_to_command_block",
+        "inputs": [{ "item": "spruce_boat_with_chest", "amount": 1.0 }, { "item": "bedrock", "amount": 1.0 }],
+        "outputs": [{ "item": "command_block", "amount": 1.0 }]
+      },
+      {
+        "id": "two_crafter_netherite_scrap_to_netherite_scraps",
+        "inputs": [{ "item": "netherite_scrap", "amount": 1.0 }, { "item": "netherite_scrap", "amount": 1.0 }],
+        "outputs": [{ "item": "netherite_scraps", "amount": 1.0 }]
       }
     ]
   },
@@ -329,6 +344,11 @@
         "id": "crusher_end_crystal_and_obsidian_to_ghast_tear",
         "inputs": [{ "item": "end_crystal", "amount": 1.0 }, { "item": "obsidian", "amount": 1.0 }],
         "outputs": [{ "item": "ghast_tear", "amount": 1.0 }]
+      },
+      {
+        "id": "crusher_command_block_and_bedrock_to_netherite_chip",
+        "inputs": [{ "item": "command_block", "amount": 1.0 }, { "item": "bedrock", "amount": 1.0 }],
+        "outputs": [{ "item": "netherite_chip", "amount": 4.0 }]
       }
     ]
   },
@@ -398,6 +418,11 @@
         "id": "zapper_unchiseled_purpur_to_chiseled_purpur",
         "inputs": [{ "item": "unchiseled_purpur", "amount": 1.0 }],
         "outputs": [{ "item": "chiseled_purpur", "amount": 1.0 }]
+      },
+      {
+        "id": "zapper_iron_block_to_bone_block",
+        "inputs": [{ "item": "iron_block", "amount": 1.0 }],
+        "outputs": [{ "item": "bone_block", "amount": 1.0 }]
       }
     ]
   },
@@ -497,6 +522,16 @@
         "id": "three_crafter_ghast_tear_cluster_and_ender-infused_soil_to_dried_ghast",
         "inputs": [{ "item": "ghast_tear_cluster", "amount": 1.0 }, { "item": "ender-infused_soil", "amount": 1.0 }, { "item": "ghast_tear_cluster", "amount": 1.0 }],
         "outputs": [{ "item": "dried_ghast", "amount": 6.0 }]
+      },
+      {
+        "id": "three_crafter_diamond_to_diamond_chestplate",
+        "inputs": [{ "item": "diamond", "amount": 1.0 }, { "item": "diamond", "amount": 1.0 }, { "item": "diamond", "amount": 1.0 }],
+        "outputs": [{ "item": "diamond_chestplate", "amount": 1.0 }]
+      },
+      {
+        "id": "three_crafter_netherite_chip_and_blaze_powder_to_netherite_scrap",
+        "inputs": [{ "item": "netherite_chip", "amount": 1.0 }, { "item": "blaze_powder", "amount": 1.0 }, { "item": "netherite_chip", "amount": 1.0 }],
+        "outputs": [{ "item": "netherite_scrap", "amount": 1.0 }]
       }
     ]
   },
@@ -648,6 +683,60 @@
         "id": "enchanter_antimatter_and_ghast_soul_and_glowing_obsidian_to_bedrock",
         "inputs": [{ "item": "antimatter", "amount": 1.0 }, { "item": "ghast_soul", "amount": 1.0 }, { "item": "glowing_obsidian", "amount": 1.0 }],
         "outputs": [{ "item": "bedrock", "amount": 1.0 }]
+      },
+      {
+        "id": "enchanter_coal_block_and_blaze_powder_to_diamond_block",
+        "inputs": [{ "item": "coal_block", "amount": 1.0 }, { "item": "blaze_powder", "amount": 1.0 }, { "item": "coal_block", "amount": 1.0 }],
+        "outputs": [{ "item": "diamond_block", "amount": 1.0 }]
+      },
+      {
+        "id": "enchanter_coal_block_and_blaze_powder_and_iron_ingot_to_iron_block",
+        "inputs": [{ "item": "coal_block", "amount": 1.0 }, { "item": "iron_ingot", "amount": 1.0 }, { "item": "blaze_powder", "amount": 1.0 }],
+        "outputs": [{ "item": "iron_block", "amount": 1.0 }]
+      },
+      {
+        "id": "enchanter_iron_axe_and_diamond_and_blaze_powder_to_diamond_axe",
+        "inputs": [{ "item": "iron_axe", "amount": 1.0 }, { "item": "diamond", "amount": 1.0 }, { "item": "blaze_powder", "amount": 1.0 }],
+        "outputs": [{ "item": "diamond_axe", "amount": 1.0 }]
+      },
+      {
+        "id": "enchanter_bone_block_and_antimatter_to_skeleton_skull",
+        "inputs": [{ "item": "bone_block", "amount": 1.0 }, { "item": "antimatter", "amount": 1.0 }, { "item": "bone_block", "amount": 1.0 }],
+        "outputs": [{ "item": "skeleton_skull", "amount": 2.0 }]
+      },
+      {
+        "id": "enchanter_antimatter_and_skeleton_skull_and_ender-infused_soil_to_wither_skeleton_skull",
+        "inputs": [{ "item": "antimatter", "amount": 1.0 }, { "item": "skeleton_skull", "amount": 1.0 }, { "item": "ender-infused_soil", "amount": 1.0 }],
+        "outputs": [{ "item": "wither_skeleton_skull", "amount": 1.0 }]
+      },
+      {
+        "id": "enchanter_nether_brick_and_netherite_scraps_and_gold_ingot_to_netherite_ingot",
+        "inputs": [{ "item": "nether_brick", "amount": 1.0 }, { "item": "netherite_scraps", "amount": 1.0 }, { "item": "gold_ingot", "amount": 1.0 }],
+        "outputs": [{ "item": "netherite_ingot", "amount": 1.0 }]
+      },
+      {
+        "id": "enchanter_netherite_ingot_and_diamond_axe_and_blaze_powder_to_netherite_axe",
+        "inputs": [{ "item": "netherite_ingot", "amount": 1.0 }, { "item": "diamond_axe", "amount": 1.0 }, { "item": "blaze_powder", "amount": 1.0 }],
+        "outputs": [{ "item": "netherite_axe", "amount": 1.0 }]
+      },
+      {
+        "id": "enchanter_netherite_ingot_and_diamond_chestplate_and_blaze_powder_to_netherite_chestplate",
+        "inputs": [{ "item": "netherite_ingot", "amount": 1.0 }, { "item": "diamond_chestplate", "amount": 1.0 }, { "item": "blaze_powder", "amount": 1.0 }],
+        "outputs": [{ "item": "netherite_chestplate", "amount": 1.0 }]
+      }
+    ]
+  },
+
+  {
+    "name": "FIVE_CRAFTER",
+    "image": "five_crafter.png",
+    "inputSlots": 5,
+    "outputSlots": 1,
+    "recipes": [
+      {
+        "id": "five_crafter_ender-infused_soil_and_netherite_axe_and_wither_skeleton_skull_and_netherite_chestplate_and_enchanted_torch_to_nether_star",
+        "inputs": [{ "item": "ender-infused_soil", "amount": 1.0 }, { "item": "netherite_axe", "amount": 1.0 }, { "item": "wither_skeleton_skull", "amount": 1.0 }, { "item": "netherite_chestplate", "amount": 1.0 }, { "item": "enchanted_torch", "amount": 1.0 }],
+        "outputs": [{ "item": "nether_star", "amount": 1.0 }]
       }
     ]
   }

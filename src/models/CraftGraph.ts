@@ -8,6 +8,19 @@ export class CraftGraph {
     machines: Machine[] = [];
     recipes: Recipe[] = [];
 
+    private bestPathCache = new Map<string, RecipePath | null>();
+
+    private makeKey(
+        target: Item,
+        unlocked: Set<Machine>,
+        starting: Set<Item>,
+        amount: number
+    ): string {
+        const uIds = Array.from(unlocked).map(m => m.name).sort().join(",");
+        const sIds = Array.from(starting).map(i => i.id).sort().join(",");
+        return `${target.id}|U:${uIds}|S:${sIds}|A:${amount}`;
+    }
+
     async loadItems(url = import.meta.env.BASE_URL + '/items.json') {
         const list: { id: string; name: string; price: number; image: string }[] = await fetch(url).then(r => r.json());
         for (const ic of list) {
@@ -44,29 +57,6 @@ export class CraftGraph {
         return item;
     }
 
-    computeRequirementsFromPath(path: RecipePath, target: Item, targetAmount: number): Map<Item, number> {
-        const needed = new Map<Item, number>();
-        const have = new Map<Item, number>();
-
-        needed.set(target, targetAmount);
-        const steps = [...path.steps].reverse();
-
-        for (const recipe of steps) {
-            for (const [outItem, produced] of recipe.outputs) {
-                const amountNeeded = needed.get(outItem) || 0;
-                if (amountNeeded === 0) continue;
-                const times = amountNeeded / produced;
-                needed.delete(outItem);
-                have.set(outItem, (have.get(outItem) || 0) + amountNeeded);
-                for (const [inItem, amt] of recipe.inputs) {
-                    needed.set(inItem, (needed.get(inItem) || 0) + amt * times);
-                }
-            }
-        }
-
-        return needed;
-    }
-
     findReachable(unlocked: Set<Machine>, starting: Set<Item>): Set<Item> {
         const reachable = new Set(starting);
         let changed: boolean;
@@ -88,42 +78,70 @@ export class CraftGraph {
         return reachable;
     }
 
-    findPathsToItem(target: Item, unlocked: Set<Machine>, starting: Set<Item>): RecipePath[] {
-        const memo = new Map<Item, RecipePath[]>();
-        return this._findPathsToItem(target, starting, unlocked, memo);
+    findBestPathToItem(
+        target: Item,
+        unlocked: Set<Machine>,
+        starting: Set<Item>,
+        amount: number = 1,
+        memo: Map<string, RecipePath | null> = new Map()
+    ): RecipePath | null {
+        const key = this.makeKey(target, unlocked, starting, amount);
+        if (memo.has(key) || this.bestPathCache.has(key)) {
+            return memo.get(key) ?? this.bestPathCache.get(key)!;
+        }
+
+        const result = this._findBestPathToItem(target, starting, unlocked, amount, memo);
+        memo.set(key, result);
+        this.bestPathCache.set(key, result);
+        return result;
     }
 
-    private _findPathsToItem(
+    private _findBestPathToItem(
         target: Item,
         starting: Set<Item>,
         unlocked: Set<Machine>,
-        memo: Map<Item, RecipePath[]>
-    ): RecipePath[] {
-        if (starting.has(target)) return [new RecipePath()];
-        if (memo.has(target)) return memo.get(target)!;
-        const paths: RecipePath[] = [];
+        amount: number,
+        memo: Map<string, RecipePath | null>
+    ): RecipePath | null {
+        if (starting.has(target)) return new RecipePath();
 
-        for (const r of target.producedBy) {
-            if (!unlocked.has(r.machine)) continue;
-            const inputPathsMap = new Map<Item, RecipePath[]>();
-            let allInputs = true;
-            for (const inItem of r.inputs.keys()) {
-                const inPaths = this._findPathsToItem(inItem, starting, unlocked, memo);
-                if (inPaths.length === 0) { allInputs = false; break; }
-                inputPathsMap.set(inItem, inPaths);
+        let bestPerUnit: RecipePath | null = null;
+        let bestRecipe: Recipe | null = null;
+
+        const uniqueRecipes = Array.from(new Set(target.producedBy.map(r => r.id)))
+            .map(id => target.producedBy.find(r => r.id === id)!);
+
+        for (const recipe of uniqueRecipes) {
+            if (!unlocked.has(recipe.machine)) continue;
+
+            const candidate = new RecipePath();
+            let ok = true;
+
+            for (const [inItem, inQty] of recipe.inputs) {
+                const sub = this.findBestPathToItem(inItem, unlocked, starting, inQty, memo);
+                if (!sub) { ok = false; break; }
+                candidate.merge(sub);
             }
-            if (!allInputs) continue;
-            const combos = this.crossProduct(Array.from(inputPathsMap.values()));
-            for (const combo of combos) {
-                const p = new RecipePath();
-                combo.forEach(sub => p.steps.push(...sub.steps));
-                p.steps.push(r);
-                paths.push(p);
+
+            if (!ok) continue;
+
+            // Add this recipe once (per unit basis)
+            candidate.add(recipe, 1);
+
+            if (!bestPerUnit || candidate.totalSteps() < bestPerUnit.totalSteps()) {
+                bestPerUnit = candidate;
+                bestRecipe = recipe;
             }
         }
 
-        memo.set(target, paths);
-        return paths;
+        if (!bestPerUnit || !bestRecipe) return null;
+
+        // Now compute how many times to run the chosen recipe
+        const outputQty = bestRecipe.outputs.get(target) ?? 1;
+        const runs = amount / outputQty;
+
+        const scaled = bestPerUnit.clone().scale(runs);
+        return scaled;
     }
 
     itemsFrom(source: Item, unlocked: Set<Machine>): Set<Item> {
@@ -144,19 +162,7 @@ export class CraftGraph {
                 }
             }
         }
-
         return visited;
-    }
-
-    private crossProduct<T>(lists: T[][]): T[][] {
-        if (lists.length === 0) return [[]];
-        const [first, ...rest] = lists;
-        const restProd = this.crossProduct(rest);
-        const result: T[][] = [];
-        for (const f of first) {
-            for (const r of restProd) result.push([f, ...r]);
-        }
-        return result;
     }
 
     computeDepths(): Map<Item, number> {

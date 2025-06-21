@@ -5,7 +5,7 @@ import { Item } from "../models/Item";
 import { Machine } from "../models/Machine";
 import "./GraphPage.css";
 
-const STARTING_ITEM_IDS = ["birch_log", "coal", "cobblestone", "end_stone", "netherrack", "oak_log", "raw_copper", "raw_iron", "stick", "anvil", "quartz", "raw_copper", "spruce_log", "gold_ore"];
+const STARTING_ITEM_IDS = ["birch_log", "coal", "cobblestone", "end_stone", "netherrack", "oak_log", "raw_copper", "raw_iron", "stick", "anvil", "quartz", "raw_copper", "spruce_log", "gold_ore", "clean_glass", "coal_block", "iron_axe", "blaze_rod", "unchiseled_purpur", "chiseled_purpur", "ender_pearl", "obsidian", "antimatter", "spruce_planks"];
 
 type Props = {
   graph: CraftGraph;

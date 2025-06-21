@@ -45,23 +45,10 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
     const reachableItems = graph.findReachable(unlockedMachines, startingItems);
 
     // Compute all paths and pick the shortest
-    const allPaths = selectedItem
-        ? graph.findPathsToItem(selectedItem, unlockedMachines, startingItems)
-        : [];
-    const bestPath: RecipePath | null = allPaths.length > 0
-        ? allPaths.reduce((shortest, path) =>
-            path.steps.length < shortest.steps.length ? path : shortest,
-            allPaths[0]
-        )
-        : null;
+    const bestPath = selectedItem
+        ? graph.findBestPathToItem(selectedItem, unlockedMachines, startingItems)
+        : new RecipePath();
     const allItemsFrom = selectedItem ? graph.itemsFrom(selectedItem, unlockedMachines) : [];
-
-
-    // Compute requirements map for bestPath
-    const requirements: Map<Item, number> = bestPath && selectedItem ? graph.computeRequirementsFromPath(bestPath, selectedItem, targetAmount) : new Map();
-    if (selectedItem) {
-        requirements.set(selectedItem, (requirements.get(selectedItem) || 0) + targetAmount);
-    }
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -96,37 +83,21 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
         mtx.strokeRect(0, 0, 24, 24);
 
         // Build edge sets
-        const allEdges = new Set<string>();
         const bestEdges = new Set<string>();
         const fromEdges = new Set<string>();
 
         let visibleItems = new Set(allItems);
-        let visibleEdges = new Set(allEdges);
-        
+        let visibleEdges = new Set();
+
         if (focusItem) {
             visibleItems = new Set();
             visibleEdges = new Set();
         }
 
         if (bestPath) {
-            for (const path of allPaths) {
-                for (const step of path.steps) {
-                    for (const [inItem] of step.inputs) {
-                        for (const [outItem] of step.outputs) {
-                            const key = `${inItem.id}->${outItem.id}`;
-                            allEdges.add(key);
-                            if (focusItem) {
-                                visibleEdges.add(key);
-                                visibleItems.add(inItem);
-                                visibleItems.add(outItem);
-                            }
-                        }
-                    }
-                }
-            }
             for (const step of bestPath.steps) {
-                for (const [inItem] of step.inputs) {
-                    for (const [outItem] of step.outputs) {
+                for (const [inItem] of step.recipe.inputs) {
+                    for (const [outItem] of step.recipe.outputs) {
                         const key = `${inItem.id}->${outItem.id}`;
                         bestEdges.add(key);
                         if (focusItem) {
@@ -195,9 +166,6 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
                     if (bestEdges.has(key)) {
                         ctx.strokeStyle = "red";
                         ctx.lineWidth = 3;
-                    } else if (allEdges.has(key)) {
-                        ctx.strokeStyle = "red";
-                        ctx.lineWidth = 1;
                     } else if (fromEdges.has(key)) {
                         ctx.strokeStyle = "green";
                         ctx.lineWidth = 3;
@@ -211,7 +179,7 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
                     ctx.stroke();
 
                     // Draw machine icon for bestEdges only
-                    if ((allEdges.has(key) || fromEdges.has(key)) && recipe.machine) {
+                    if ((bestEdges.has(key) || fromEdges.has(key)) && recipe.machine) {
                         const midX = (from.x + to.x) / 2 + 16;
                         const midY = (from.y + to.y) / 2 + 16;
                         const img = recipe.machine.image ? recipe.machine.image : machineTemplate;
@@ -232,12 +200,6 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
             // Draw the item image
             const img = item.image ?? itemTemplate;
             ctx.drawImage(img, pos.x, pos.y, 32, 32);
-
-            // Draw the requirement label, if applicable
-            if (requirements.has(item)) {
-                const label = requirements.get(item)!.toFixed(2);
-                ctx.fillText(label, pos.x + 30, pos.y + 30);
-            }
         }
         ctx.globalAlpha = 1;
     }, [
@@ -356,38 +318,59 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
 
             {bestPath && bestPath.steps.length >= 1 && (
                 <div className="recipe-steps-panel">
-                {bestPath.steps.map((step, idx) => (
-                    <div key={idx} className="recipe-step">
-                    <div className="inputs">
-                        {Array.from(step.inputs.keys()).map((i) => (
-                        <img
-                            key={i.id}
-                            src={i.image?.src}
-                            alt={i.name}
-                            className="step-item"
-                            title={i.name}
-                        />
-                        ))}
-                    </div>
-                    <span className="arrow">➔</span>
-                    <img
-                        src={step.machine.image?.src || ""}
-                        alt={step.machine.name}
-                        className="step-machine"
-                    />
-                    <span className="arrow">➔</span>
-                    <div className="outputs">
-                        {Array.from(step.outputs.keys()).map((o) => (
-                        <img
-                            key={o.id}
-                            src={o.image?.src}
-                            alt={o.name}
-                            className="step-item"
-                        />
-                        ))}
-                    </div>
-                    </div>
-                ))}
+                    {bestPath.steps.map((step, idx) => (
+                        <div key={idx} className="recipe-step">
+                            <div className="inputs">
+                                {Array.from(step.recipe.inputs.keys()).map((i) => {
+                                    const perRecipe = step.recipe.inputs.get(i) || 0;
+                                    return (
+                                        <div key={i.id} className="step-item-container">
+                                            <img
+                                                src={i.image?.src}
+                                                alt={i.name}
+                                                className="step-item"
+                                                title={i.name}
+                                            />
+                                            <div className="step-count">
+                                                {(step.count * perRecipe).toFixed(2)}
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+
+                            <span className="arrow">➔</span>
+
+                            <div className="step-machine-container">
+                                <img
+                                    src={step.recipe.machine.image?.src || ""}
+                                    alt={step.recipe.machine.name}
+                                    className="step-machine"
+                                />
+                            </div>
+
+                            <span className="arrow">➔</span>
+
+                            <div className="outputs">
+                                {Array.from(step.recipe.outputs.keys()).map((o) => {
+
+                                    const perRecipe = step.recipe.outputs.get(o) || 0;
+                                    return (
+                                        <div key={o.id} className="step-item-container">
+                                            <img
+                                                src={o.image?.src}
+                                                alt={o.name}
+                                                className="step-item"
+                                            />
+                                            <div className="step-count">
+                                                {(step.count * perRecipe).toFixed(2)}
+                                            </div>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        </div>
+                    ))}
                 </div>
             )}
         </div>
