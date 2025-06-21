@@ -40,8 +40,8 @@ export class CraftGraph {
             this.machines.push(m);
 
             for (const rc of mc.recipes) {
-                const inputs = rc.inputs.map(s => [this.getItemById(s.item), s.amount] as [Item, number]);
-                const outputs = rc.outputs.map(s => [this.getItemById(s.item), s.amount] as [Item, number]);
+                const inputs = this.mergeSlots(rc.inputs);
+                const outputs = this.mergeSlots(rc.outputs);
                 const r = new Recipe(rc.id, m, inputs, outputs);
                 this.recipes.push(r);
                 m.recipes.push(r);
@@ -49,6 +49,15 @@ export class CraftGraph {
                 outputs.forEach(([it]) => it.producedBy.push(r));
             }
         }
+    }
+
+    mergeSlots(slots: { item: string; amount: number }[]): [Item, number][] {
+        const merged = new Map<Item, number>();
+        for (const s of slots) {
+            const item = this.getItemById(s.item);
+            merged.set(item, (merged.get(item) || 0) + s.amount);
+        }
+        return Array.from(merged.entries());
     }
 
     private getItemById(id: string): Item {
@@ -173,7 +182,7 @@ export class CraftGraph {
 
     private depthOf(item: Item, seen: Set<Item>): number {
     if (seen.has(item)) return 0;
-    const newSeen = new Set(seen);  // <-- fresh copy per path
+    const newSeen = new Set(seen);
     newSeen.add(item);
 
     let max = 0;
