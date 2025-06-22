@@ -290,6 +290,10 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
         return num % 1 === 0 ? `${num}` : num.toFixed(1);
     }
 
+    const area = bestPath
+        ? graph.estimateArea(bestPath, startingItems)
+        : null;
+
     return (
         <div style={{ position: "relative", width, height }}>
             <canvas
@@ -319,7 +323,22 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
             )}
 
             {bestPath && bestPath.steps.length >= 1 && (
+
                 <div className="recipe-steps-panel">
+
+                    {area && (
+                        <div className="area-info">
+                            <div>Estimated area (best-case):</div>
+                            <ul>
+                                <li>Machine blocks: {area.machineSlots}</li>
+                                <li>Generator blocks: {area.generatorSlots}</li>
+                                <li>Generator optimisation blocks: {area.generatorOptimisationSlots}</li>
+                                <li><strong>Total: {area.machineSlots} + {area.generatorSlots} - {area.generatorOptimisationSlots} = {area.total} Blocks</strong></li>
+                            </ul>
+                        </div>
+                    )}
+
+
                     {bestPath.steps.map((step, idx) => (
                         <div key={idx} className="recipe-step">
                             <div className="inputs">

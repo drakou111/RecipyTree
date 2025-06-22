@@ -3,14 +3,16 @@ import { Recipe } from './Recipe';
 export class Machine {
     name: string;
     image: HTMLImageElement | null = null;
+    pullsItems: boolean;
     inputSlots: number;
     outputSlots: number;
     recipes: Recipe[] = [];
 
     private static loadedImages: Map<string, HTMLImageElement> = new Map();
 
-    constructor(name: string, image: string, inputSlots: number, outputSlots: number) {
+    constructor(name: string, image: string, pullsItems: boolean, inputSlots: number, outputSlots: number) {
         this.name = name;
+        this.pullsItems = pullsItems;
         this.inputSlots = inputSlots;
         this.outputSlots = outputSlots;
         this.loadImage(image);

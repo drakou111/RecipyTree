@@ -4,17 +4,21 @@ export class Item {
     id: string;
     name: string;
     price: number;
-    image: HTMLImageElement | null = null; // Replaces PIXI.Texture
+    image: HTMLImageElement | null = null;
+    generator: boolean;
+    container: boolean;
     usedIn: Recipe[] = [];
     producedBy: Recipe[] = [];
 
     private static loadedImages: Map<string, HTMLImageElement> = new Map();
 
-    constructor(id: string, name: string, price: number, imageUrl: string) {
+    constructor(id: string, name: string, price: number, imageUrl: string, generator: boolean, container: boolean) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.loadImage(imageUrl);
+        this.generator = generator;
+        this.container = container;
     }
 
     private async loadImage(imageUrl: string): Promise<void> {

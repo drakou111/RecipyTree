@@ -22,21 +22,21 @@ export class CraftGraph {
     }
 
     async loadItems(url = import.meta.env.BASE_URL + '/items.json') {
-        const list: { id: string; name: string; price: number; image: string }[] = await fetch(url).then(r => r.json());
+        const list: { id: string; name: string; price: number; image: string; generator: boolean; container: boolean }[] = await fetch(url).then(r => r.json());
         for (const ic of list) {
-            this.items.push(new Item(ic.id, ic.name, ic.price, import.meta.env.BASE_URL + `/images/${ic.image}`));
+            this.items.push(new Item(ic.id, ic.name, ic.price, import.meta.env.BASE_URL + `/images/${ic.image}`, ic.generator, ic.container));
         }
     }
 
     async loadMachines(url = import.meta.env.BASE_URL + '/machines.json') {
         type SlotConfig = { item: string; amount: number };
         type RecipeConfig = { id: string; inputs: SlotConfig[]; outputs: SlotConfig[] };
-        type MachineConfig = { name: string; image: string; inputSlots: number; outputSlots: number; recipes: RecipeConfig[] };
+        type MachineConfig = { name: string; image: string; inputSlots: number; outputSlots: number; pullsItems: boolean, recipes: RecipeConfig[] };
 
         const cfgs: MachineConfig[] = await fetch(url).then(r => r.json());
         for (const mc of cfgs) {
             console.log(mc.image);
-            const m = new Machine(mc.name, import.meta.env.BASE_URL + `/images/${mc.image}`, mc.inputSlots, mc.outputSlots);
+            const m = new Machine(mc.name, import.meta.env.BASE_URL + `/images/${mc.image}`, mc.pullsItems, mc.inputSlots, mc.outputSlots);
             this.machines.push(m);
 
             for (const rc of mc.recipes) {
@@ -215,4 +215,37 @@ export class CraftGraph {
 
         return max;
     }
+
+    estimateArea(
+        path: RecipePath,
+        starting: Set<Item>
+    ): {machineSlots: number, generatorSlots: number, generatorOptimisationSlots: number, total: number } {
+        // 2) Machine slot cost (as before)
+        const machineSlots = path.steps.reduce((sum, { recipe, count }) => {
+            let slots = 1;
+            if (recipe.machine.pullsItems)
+                slots += recipe.inputs.size;
+            return sum + Math.ceil(slots * count);
+        }, 0);
+
+        // 3) Generator slot cost: for each “root” item, we need 5× as many slots
+        let generatorSlots = 0;
+        let generatorOptimisationSlots = 0;
+        for (const { recipe, count } of path.steps) {
+            let sum = 0;
+            for (const [item, c] of recipe.inputs) {
+                if (starting.has(item)) {
+                    let amount = c;
+                    if (item.generator && !item.container)
+                        amount *= 5
+                    if (amount > 0 && recipe.machine.pullsItems)
+                        generatorOptimisationSlots++;
+                    sum += amount;
+                }
+            }
+            generatorSlots += Math.ceil(count * sum);
+        }
+        return {machineSlots: machineSlots, generatorSlots: generatorSlots, generatorOptimisationSlots: generatorOptimisationSlots, total: (machineSlots + generatorSlots - generatorOptimisationSlots) }
+    }
+
 }

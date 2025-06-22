@@ -137,9 +137,20 @@
   transition: color 250ms linear;
 }
 
-.step-count {
+.step-count, .area-info {
   font-size: 1rem;
-  margin: 0 0.25rem;
   color: var(--primary-text-color, #333);
   transition: color 250ms linear;
+}
+
+.area-info {
+  border: .2em solid var(--border);
+  border-radius: 1em;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  transition: background-color 250ms linear, border 250ms linear, color 250ms linear;
+}
+
+li {
+  list-style-type: none;
 }
