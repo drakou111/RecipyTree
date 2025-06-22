@@ -389,11 +389,13 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
                                         <rect x="7.25" y="7" width="1.5" height="4.5" fill="currentColor" />
                                         <circle cx="8" cy="4.25" r="0.75" fill="currentColor" />
                                     </svg>
-                                    <span className="tooltip">This calculation does not take <br></br>
+                                    <span className="tooltip">
+                                        This calculation does not take <br></br>
                                         into account multiple machines using <br></br>
-                                        the same generators, and re-using machines <br></br>
-                                        for multiple recipes. So the actual <br></br>
-                                        result should be a bit lower.
+                                        the same generators, and re-using <br></br>
+                                        machines for multiple recipes. So the <br></br>
+                                        actual result should be a bit lower. <br></br>
+                                        A plot has 720 blocks of area (12*12*5).
                                     </span>
                                 </span>:
                             </div>
