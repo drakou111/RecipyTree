@@ -3,715 +3,953 @@
     "id": "activated_copper_chunk",
     "name": "Activated Copper Chunk",
     "price": 10000000.0,
-    "image": "activated_copper_chunk.png"
+    "image": "activated_copper_chunk.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "activated_copper_ingot",
     "name": "Activated Copper Ingot",
     "price": 15000000.0,
-    "image": "activated_copper_ingot.png"
+    "image": "activated_copper_ingot.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "active_hyphae_cluster",
     "name": "Active Hyphae Cluster",
     "price": 10000000.0,
-    "image": "active_hyphae_cluster.png"
+    "image": "active_hyphae_cluster.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "andesite",
     "name": "Andesite",
     "price": 1000.0,
-    "image": "andesite.png"
+    "image": "andesite.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "antimatter",
     "name": "Antimatter",
     "price": 15000000000.0,
-    "image": "antimatter.png"
+    "image": "antimatter.png",
+    "generator": false,
+    "container": true
   },
   {
     "id": "anvil",
     "name": "Anvil",
     "price": 5000000.0,
-    "image": "anvil.png"
+    "image": "anvil.png",
+    "generator": false,
+    "container": true
   },
   {
     "id": "bedrock",
     "name": "Bedrock",
     "price": 200000000000000000.0,
-    "image": "bedrock.png"
+    "image": "bedrock.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "birch_log",
     "name": "Birch Log",
     "price": 1000000.0,
-    "image": "birch_log.png"
+    "image": "birch_log.png",
+    "generator": true,
+    "container": false
   },
   {
     "id": "birch_planks",
     "name": "Birch Planks",
     "price": 300000.0,
-    "image": "birch_planks.png"
+    "image": "birch_planks.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "birch_slab",
     "name": "Birch Slab",
     "price": 150000.0,
-    "image": "birch_slab.png"
+    "image": "birch_slab.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "birch_wood",
     "name": "Birch Wood",
     "price": 1300000.0,
-    "image": "birch_wood.png"
+    "image": "birch_wood.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "blaze_powder",
     "name": "Blaze Powder",
     "price": 150000000000.0,
-    "image": "blaze_powder.png"
+    "image": "blaze_powder.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "blaze_rod",
     "name": "Blaze Rod",
     "price": 200000000000.0,
-    "image": "blaze_rod.png"
+    "image": "blaze_rod.png",
+    "generator": false,
+    "container": true
   },
   {
     "id": "calcified_lump",
     "name": "Calcified Lump",
     "price": 4000000000.0,
-    "image": "calcified_lump.png"
+    "image": "calcified_lump.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "charcoal",
     "name": "Charcoal",
     "price": 25.0,
-    "image": "charcoal.png"
+    "image": "charcoal.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "chest",
     "name": "Chest",
     "price": 1000000000000000.0,
-    "image": "chest.png"
+    "image": "chest.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "chiseled_quartz",
     "name": "Chiseled Quartz",
     "price": 80000000000.0,
-    "image": "chiseled_quartz.png"
+    "image": "chiseled_quartz.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "chiseled_purpur",
     "name": "Chiseled Purpur",
     "price": 300000000000.0,
-    "image": "chiseled_purpur.png"
+    "image": "chiseled_purpur.png",
+    "generator": false,
+    "container": true
   },
   {
     "id": "chiseled_stone_bricks",
     "name": "Chiseled Stone Bricks",
     "price": 1000.0,
-    "image": "chiseled_stone_bricks.png"
+    "image": "chiseled_stone_bricks.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "chopped_spruce_planks",
     "name": "Chopped Spruce Planks",
     "price": 162500000000000.0,
-    "image": "chopped_spruce_planks.png"
+    "image": "chopped_spruce_planks.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "clean_glass",
     "name": "Clean Glass",
     "price": 12500000000.0,
-    "image": "clean_glass.png"
+    "image": "clean_glass.png",
+    "generator": false,
+    "container": true
   },
   {
     "id": "cloudy_end_glass",
     "name": "Cloudy End Glass",
     "price": 15000000000.0,
-    "image": "cloudy_end_glass.png"
+    "image": "cloudy_end_glass.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "coagulated_lump",
     "name": "Coagulated Lump",
     "price": 2000000000.0,
-    "image": "coagulated_lump.png"
+    "image": "coagulated_lump.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "coal",
     "name": "Coal",
     "price": 1000.0,
-    "image": "coal.png"
+    "image": "coal.png",
+    "generator": true,
+    "container": false
   },
   {
     "id": "coal-copper_blend",
     "name": "Coal-copper Blend",
     "price": 2000000.0,
-    "image": "coal-copper_blend.png"
+    "image": "coal-copper_blend.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "coal-copper_ingot",
     "name": "Coal-copper Ingot",
     "price": 5000000.0,
-    "image": "coal-copper_ingot.png"
+    "image": "coal-copper_ingot.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "coal_block",
     "name": "Coal Block",
     "price": 5000000.0,
-    "image": "coal_block.png"
+    "image": "coal_block.png",
+    "generator": false,
+    "container": true
   },
   {
     "id": "cobblestone",
     "name": "Cobblestone",
     "price": 20.0,
-    "image": "cobblestone.png"
+    "image": "cobblestone.png",
+    "generator": true,
+    "container": false
   },
   {
     "id": "copper_ingot",
     "name": "Copper Ingot",
     "price": 2000000.0,
-    "image": "copper_ingot.png"
+    "image": "copper_ingot.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "cracked_nether_bricks",
     "name": "Cracked Nether Bricks",
     "price": 2500000.0,
-    "image": "cracked_nether_bricks.png"
+    "image": "cracked_nether_bricks.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "dehydrated_cluster",
     "name": "Dehydrated Cluster",
     "price": 3000000.0,
-    "image": "dehydrated_cluster.png"
+    "image": "dehydrated_cluster.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "dried_ghast",
     "name": "Dried Ghast",
     "price": 3000000000000000.0,
-    "image": "dried_ghast.png"
+    "image": "dried_ghast.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "empty_rod",
     "name": "Empty Rod",
     "price": 150000000000.0,
-    "image": "empty_rod.png"
+    "image": "empty_rod.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "enchanted_torch",
     "name": "Enchanted Torch",
     "price": 1000000000.0,
-    "image": "enchanted_torch.png"
+    "image": "enchanted_torch.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "end_crystal",
     "name": "End Crystal",
     "price": 30000000000000.0,
-    "image": "end_crystal.png"
+    "image": "end_crystal.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "end_rod",
     "name": "End Rod",
     "price": 125000000000.0,
-    "image": "end_rod.png"
+    "image": "end_rod.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "end_stone",
     "name": "End Stone",
     "price": 100000000.0,
-    "image": "end_stone.png"
+    "image": "end_stone.png",
+    "generator": true,
+    "container": false
   },
   {
     "id": "ender-infused_soil",
     "name": "Ender-infused Soil",
     "price": 1000000000000.0,
-    "image": "ender-infused_soil.png"
+    "image": "ender-infused_soil.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "ender_glass",
     "name": "Ender Glass",
     "price": 10000000000.0,
-    "image": "ender_glass.png"
+    "image": "ender_glass.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "ender_pearl",
     "name": "Ender Pearl",
     "price": 1500000000000.0,
-    "image": "ender_pearl.png"
+    "image": "ender_pearl.png",
+    "generator": false,
+    "container": true
   },
   {
     "id": "ender_pearl_clump",
     "name": "Ender Pearl Clump",
     "price": 2500000000000.0,
-    "image": "ender_pearl_clump.png"
+    "image": "ender_pearl_clump.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "enhanced_endstone_powder",
     "name": "Enhanced Endstone Powder",
     "price": 6000000000.0,
-    "image": "enhanced_endstone_powder.png"
+    "image": "enhanced_endstone_powder.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "enriched_volcano_rock",
     "name": "Enriched Volcano Rock",
     "price": 20000000000.0,
-    "image": "enriched_volcano_rock.png"
+    "image": "enriched_volcano_rock.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "eye_of_ender",
     "name": "Eye Of Ender",
     "price": 6000000000000.0,
-    "image": "eye_of_ender.png"
+    "image": "eye_of_ender.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "filtered_endstone_powder",
     "name": "Filtered Endstone Powder",
     "price": 4000000000.0,
-    "image": "filtered_endstone_powder.png"
+    "image": "filtered_endstone_powder.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "ghast_soul",
     "name": "Ghast Soul",
     "price": 50000000000000000.0,
-    "image": "ghast_soul.png"
+    "image": "ghast_soul.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "ghast_tear",
     "name": "Ghast Tear",
     "price": 300000000000000.0,
-    "image": "ghast_tear.png"
+    "image": "ghast_tear.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "ghast_tear_cluster",
     "name": "Ghast Tear Cluster",
     "price": 1500000000000000.0,
-    "image": "ghast_tear_cluster.png"
+    "image": "ghast_tear_cluster.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "glass_bottle",
     "name": "Glass Bottle",
     "price": 3000000000.0,
-    "image": "glass_bottle.png"
+    "image": "glass_bottle.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "glowing_obsidian",
     "name": "Glowing Obsidian",
     "price": 1000000000000.0,
-    "image": "glowing_obsidian.png"
+    "image": "glowing_obsidian.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "glowing_obsidian_block",
     "name": "Glowing Obsidian Block",
     "price": 750000000000.0,
-    "image": "glowing_obsidian_block.png"
+    "image": "glowing_obsidian_block.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "glowing_obsidian_powder",
     "name": "Glowing Obsidian Powder",
     "price": 500000000000.0,
-    "image": "glowing_obsidian_powder.png"
+    "image": "glowing_obsidian_powder.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "glowing_obsidian_shard",
     "name": "Glowing Obsidian Shard",
     "price": 300000000000.0,
-    "image": "glowing_obsidian_shard.png"
+    "image": "glowing_obsidian_shard.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "glowstone",
     "name": "Glowstone",
     "price": 100000.0,
-    "image": "glowstone.png"
+    "image": "glowstone.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "gold_ingot",
     "name": "Gold Ingot",
     "price": 200000000.0,
-    "image": "gold_ingot.png"
+    "image": "gold_ingot.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "gold_ore",
     "name": "Gold Ore",
     "price": 30000000.0,
-    "image": "gold_ore.png"
+    "image": "gold_ore.png",
+    "generator": true,
+    "container": false
   },
   {
     "id": "gold_ore_powder",
     "name": "Gold Ore Powder",
     "price": 5000000.0,
-    "image": "gold_ore_powder.png"
+    "image": "gold_ore_powder.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "gravel",
     "name": "Gravel",
     "price": 500.0,
-    "image": "gravel.png"
+    "image": "gravel.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "gunpowder",
     "name": "Gunpowder",
     "price": 2500000.0,
-    "image": "gunpowder.png"
+    "image": "gunpowder.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "hardened_soil",
     "name": "Hardened Soil",
     "price": 2000000000000.0,
-    "image": "hardened_soil.png"
+    "image": "hardened_soil.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "inactive_cluster",
     "name": "Inactive Cluster",
     "price": 5000000.0,
-    "image": "inactive_cluster.png"
+    "image": "inactive_cluster.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "iron_axe",
     "name": "Iron Axe",
     "price": 4500000.0,
-    "image": "iron_axe.png"
+    "image": "iron_axe.png",
+    "generator": false,
+    "container": true
   },
   {
     "id": "iron_door",
     "name": "Iron Door",
     "price": 85000000.0,
-    "image": "iron_door.png"
+    "image": "iron_door.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "iron_ingot",
     "name": "Iron Ingot",
     "price": 10000000.0,
-    "image": "iron_ingot.png"
+    "image": "iron_ingot.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "lava_bottle",
     "name": "Lava Bottle",
     "price": 5000000000.0,
-    "image": "lava_bottle.png"
+    "image": "lava_bottle.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "magma_block",
     "name": "Magma Block",
     "price": 7500000000.0,
-    "image": "magma_block.png"
+    "image": "magma_block.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "nether-end_dust",
     "name": "Nether-end Dust",
     "price": 10000000000.0,
-    "image": "nether-end_dust.png"
+    "image": "nether-end_dust.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "nether_brick",
     "name": "Nether Brick",
     "price": 5000000.0,
-    "image": "nether_brick.png"
+    "image": "nether_brick.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "nether_brick_block",
     "name": "Nether Brick Block",
     "price": 2000000.0,
-    "image": "nether_brick_block.png"
+    "image": "nether_brick_block.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "nether_brick_slab",
     "name": "Nether Brick Slab",
     "price": 3000000.0,
-    "image": "nether_brick_slab.png"
+    "image": "nether_brick_slab.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "nether_dust",
     "name": "Nether Dust",
     "price": 5000000.0,
-    "image": "nether_dust.png"
+    "image": "nether_dust.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "netherrack",
     "name": "Netherrack",
     "price": 1000000.0,
-    "image": "netherrack.png"
+    "image": "netherrack.png",
+    "generator": true,
+    "container": false
   },
   {
     "id": "oak_log",
     "name": "Oak Log",
     "price": 5.0,
-    "image": "oak_log.png"
+    "image": "oak_log.png",
+    "generator": true,
+    "container": false
   },
   {
     "id": "oak_planks",
     "name": "Oak Planks",
     "price": 3.0,
-    "image": "oak_planks.png"
+    "image": "oak_planks.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "oak_slab",
     "name": "Oak Slab",
     "price": 2.0,
-    "image": "oak_slab.png"
+    "image": "oak_slab.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "obsidian",
     "name": "Obsidian",
     "price": 30000000000.0,
-    "image": "obsidian.png"
+    "image": "obsidian.png",
+    "generator": false,
+    "container": true
   },
   {
     "id": "obsidian_shard",
     "name": "Obsidian Shard",
     "price": 25000000000.0,
-    "image": "obsidian_shard.png"
+    "image": "obsidian_shard.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "purified_obsidian_shard",
     "name": "Purified Obsidian Shard",
     "price": 250000000000.0,
-    "image": "purified_obsidian_shard.png"
+    "image": "purified_obsidian_shard.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "quartz",
     "name": "Quartz",
     "price": 50000000000.0,
-    "image": "quartz.png"
+    "image": "quartz.png",
+    "generator": true,
+    "container": false
   },
   {
     "id": "quartz_block",
     "name": "Quartz Block",
     "price": 12000000000.0,
-    "image": "quartz_block.png"
+    "image": "quartz_block.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "quartz_slab",
     "name": "Quartz Slab",
     "price": 4000000000.0,
-    "image": "quartz_slab.png"
+    "image": "quartz_slab.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "raw_copper",
     "name": "Raw Copper",
     "price": 1500000.0,
-    "image": "raw_copper.png"
+    "image": "raw_copper.png",
+    "generator": true,
+    "container": false
   },
   {
     "id": "raw_iron",
     "name": "Raw Iron",
     "price": 5000000.0,
-    "image": "raw_iron.png"
+    "image": "raw_iron.png",
+    "generator": true,
+    "container": false
   },
   {
     "id": "raw_smooth_end_stone",
     "name": "Raw Smooth End Stone",
     "price": 250000000.0,
-    "image": "raw_smooth_end_stone.png"
+    "image": "raw_smooth_end_stone.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "red_nether_bricks",
     "name": "Red Nether Bricks",
     "price": 5000000.0,
-    "image": "red_nether_bricks.png"
+    "image": "red_nether_bricks.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "refined_spruce_wood",
     "name": "Refined Spruce Wood",
     "price": 137500000000000.0,
-    "image": "refined_spruce_wood.png"
+    "image": "refined_spruce_wood.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "refined_volcano_rock",
     "name": "Refined Volcano Rock",
     "price": 15000000000.0,
-    "image": "refined_volcano_rock.png"
+    "image": "refined_volcano_rock.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "smithed_gold_ore",
     "name": "Smithed Gold Ore",
     "price": 25000.0,
-    "image": "smithed_gold_ore.png"
+    "image": "smithed_gold_ore.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "smooth_end_stone",
     "name": "Smooth End Stone",
     "price": 500000000.0,
-    "image": "smooth_end_stone.png"
+    "image": "smooth_end_stone.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "smooth_stone",
     "name": "Smooth Stone",
     "price": 75.0,
-    "image": "smooth_stone.png"
+    "image": "smooth_stone.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "sparse_nether_quartz",
     "name": "Sparse Nether Quartz",
     "price": 6000000000.0,
-    "image": "sparse_nether_quartz.png"
+    "image": "sparse_nether_quartz.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "spruce_boat",
     "name": "Spruce Boat",
     "price": 3000000000000000.0,
-    "image": "spruce_boat.png"
+    "image": "spruce_boat.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "spruce_boat_with_chest",
     "name": "Spruce Boat With Chest",
     "price": 7500000000000000.0,
-    "image": "spruce_boat_with_chest.png"
+    "image": "spruce_boat_with_chest.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "spruce_door",
     "name": "Spruce Door",
     "price": 400000000000000.0,
-    "image": "spruce_door.png"
+    "image": "spruce_door.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "spruce_log",
     "name": "Spruce Log",
     "price": 25000000000000.0,
-    "image": "spruce_log.png"
+    "image": "spruce_log.png",
+    "generator": true,
+    "container": false
   },
   {
     "id": "spruce_planks",
     "name": "Spruce Planks",
     "price": 150000000000000.0,
-    "image": "spruce_planks.png"
+    "image": "spruce_planks.png",
+    "generator": false,
+    "container": true
   },
   {
     "id": "spruce_plate",
     "name": "Spruce Plate",
     "price": 150000000000000.0,
-    "image": "spruce_plate.png"
+    "image": "spruce_plate.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "spruce_slab",
     "name": "Spruce Slab",
     "price": 175000000000000.0,
-    "image": "spruce_slab.png"
+    "image": "spruce_slab.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "spruce_trapdoor",
     "name": "Spruce Trapdoor",
     "price": 190000000000000.0,
-    "image": "spruce_trapdoor.png"
+    "image": "spruce_trapdoor.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "spruce_wood",
     "name": "Spruce Wood",
     "price": 50000000000000.0,
-    "image": "spruce_wood.png"
+    "image": "spruce_wood.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "spruce_wood_shavings",
     "name": "Spruce Wood Shavings",
     "price": 50000000000000.0,
-    "image": "spruce_wood_shavings.png"
+    "image": "spruce_wood_shavings.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "stick",
     "name": "Stick",
     "price": 1.0,
-    "image": "stick.png"
+    "image": "stick.png",
+    "generator": false,
+    "container": true
   },
   {
     "id": "stone",
     "name": "Stone",
     "price": 50.0,
-    "image": "stone.png"
+    "image": "stone.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "stone_bricks",
     "name": "Stone Bricks",
     "price": 200.0,
-    "image": "stone_bricks.png"
+    "image": "stone_bricks.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "stripped_spruce_wood",
     "name": "Stripped Spruce Wood",
     "price": 125000000000000.0,
-    "image": "stripped_spruce_wood.png"
+    "image": "stripped_spruce_wood.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "tannin_clump",
     "name": "Tannin Clump",
     "price": 800000.0,
-    "image": "tannin_clump.png"
+    "image": "tannin_clump.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "tannin_cluster",
     "name": "Tannin Cluster",
     "price": 2000000.0,
-    "image": "tannin_cluster.png"
+    "image": "tannin_cluster.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "tannin_slice",
     "name": "Tannin Slice",
     "price": 300000.0,
-    "image": "tannin_slice.png"
+    "image": "tannin_slice.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "tnt",
     "name": "TNT",
     "price": 3700000.0,
-    "image": "tnt.png"
+    "image": "tnt.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "torch",
     "name": "Torch",
     "price": 1500.0,
-    "image": "torch.png"
+    "image": "torch.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "unchiseled_purpur",
     "name": "Unchiseled Purpur",
     "price": 50000000000.0,
-    "image": "unchiseled_purpur.png"
+    "image": "unchiseled_purpur.png",
+    "generator": false,
+    "container": true
   },
   {
     "id": "uncoagulated_chunk",
     "name": "Uncoagulated Chunk",
     "price": 500000000.0,
-    "image": "uncoagulated_chunk.png"
+    "image": "uncoagulated_chunk.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "uncoagulated_lump",
     "name": "Uncoagulated Lump",
     "price": 1300000000.0,
-    "image": "uncoagulated_lump.png"
+    "image": "uncoagulated_lump.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "uncoagulated_mote",
     "name": "Uncoagulated Mote",
     "price": 200000000.0,
-    "image": "uncoagulated_mote.png"
+    "image": "uncoagulated_mote.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "unfiltered_endstone_powder",
     "name": "Unfiltered Endstone Powder",
     "price": 500000000.0,
-    "image": "unfiltered_endstone_powder.png"
+    "image": "unfiltered_endstone_powder.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "unrefined_gold_ore",
     "name": "Unrefined Gold Ore",
     "price": 5000.0,
-    "image": "unrefined_gold_ore.png"
+    "image": "unrefined_gold_ore.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "unrefined_volcano_rock",
     "name": "Unrefined Volcano Rock",
     "price": 12500000000.0,
-    "image": "unrefined_volcano_rock.png"
+    "image": "unrefined_volcano_rock.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "water_bottle",
     "name": "Water Bottle",
     "price": 4000000000.0,
-    "image": "water_bottle.png"
+    "image": "water_bottle.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "wooden_shovel",
     "name": "Wooden Shovel",
     "price": 187500000000000.0,
-    "image": "wooden_shovel.png"
+    "image": "wooden_shovel.png",
+    "generator": false,
+    "container": false
   },
 
 
@@ -722,96 +960,128 @@
     "id": "diamond",
     "name": "Diamond",
     "price": 100000000000.0,
-    "image": "diamond.png"
+    "image": "diamond.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "diamond_block",
     "name": "Diamond Block",
     "price": 200000000000.0,
-    "image": "diamond_block.png"
+    "image": "diamond_block.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "iron_block",
     "name": "Iron Block",
     "price": 200000000000.0,
-    "image": "iron_block.png"
+    "image": "iron_block.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "diamond_axe",
     "name": "Diamond Axe",
     "price": 350000000000.0,
-    "image": "diamond_axe.png"
+    "image": "diamond_axe.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "diamond_chestplate",
     "name": "Diamond Chestplate",
     "price": 500000000000.0,
-    "image": "diamond_chestplate.png"
+    "image": "diamond_chestplate.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "bone_block",
     "name": "Bone Block",
     "price": 500000000000.0,
-    "image": "bone_block.png"
+    "image": "bone_block.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "skeleton_skull",
     "name": "Skeleton Skull",
     "price": 750000000000.0,
-    "image": "skeleton_skull.png"
+    "image": "skeleton_skull.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "wither_skeleton_skull",
     "name": "Wither Skeleton Skull",
     "price": 2000000000000.0,
-    "image": "wither_skeleton_skull.png"
+    "image": "wither_skeleton_skull.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "netherite_chip",
     "name": "Netherite Chip",
     "price": 300000000000000000.0,
-    "image": "netherite_chip.png"
+    "image": "netherite_chip.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "command_block",
     "name": "Command Block",
     "price": 500000000000000000.0,
-    "image": "command_block.png"
+    "image": "command_block.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "netherite_scrap",
     "name": "Netherite Scrap",
     "price": 800000000000000000.0,
-    "image": "netherite_scrap.png"
+    "image": "netherite_scrap.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "netherite_scraps",
     "name": "Netherite Scraps",
     "price": 2500000000000000000.0,
-    "image": "netherite_scraps.png"
+    "image": "netherite_scraps.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "netherite_ingot",
     "name": "Netherite Ingot",
     "price": 3000000000000000000.0,
-    "image": "netherite_ingot.png"
+    "image": "netherite_ingot.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "netherite_axe",
     "name": "Netherite Axe",
     "price": 4000000000000000000.0,
-    "image": "netherite_axe.png"
+    "image": "netherite_axe.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "netherite_chestplate",
     "name": "Netherite Chestplate",
     "price": 5500000000000000000.0,
-    "image": "netherite_chestplate.png"
+    "image": "netherite_chestplate.png",
+    "generator": false,
+    "container": false
   },
   {
     "id": "nether_star",
     "name": "Nether Star",
     "price": 50000000000000000000.0,
-    "image": "nether_star.png"
+    "image": "nether_star.png",
+    "generator": false,
+    "container": false
   }
 ]

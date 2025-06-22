@@ -4,6 +4,7 @@
     "image": "saw.png",
     "inputSlots": 1,
     "outputSlots": 1,
+    "pullsItems": false,
     "recipes": [
       {
         "id": "saw_oak_slab_to_stick",
@@ -65,6 +66,7 @@
     "image": "furnace.png",
     "inputSlots": 1,
     "outputSlots": 1,
+    "pullsItems": false,
     "recipes": [
       {
         "id": "furnace_oak_log_to_charcoal",
@@ -135,6 +137,7 @@
     "image": "two_crafter.png",
     "inputSlots": 2,
     "outputSlots": 1,
+    "pullsItems": true,
     "recipes": [
       {
         "id": "two_crafter_smooth_stone_and_smooth_stone_to_stone_bricks",
@@ -294,6 +297,7 @@
     "image": "crusher.png",
     "inputSlots": 2,
     "outputSlots": 1,
+    "pullsItems": true,
     "recipes": [
       {
         "id": "crusher_smooth_stone_and_anvil_to_gravel",
@@ -358,6 +362,7 @@
     "image": "zapper.png",
     "inputSlots": 1,
     "outputSlots": 1,
+    "pullsItems": false,
     "recipes": [
       {
         "id": "zapper_stone_bricks_to_chiseled_stone_bricks",
@@ -432,6 +437,7 @@
     "image": "three_crafter.png",
     "inputSlots": 3,
     "outputSlots": 1,
+    "pullsItems": true,
     "recipes": [
       {
         "id": "three_crafter_torch_and_charcoal_and_smooth_stone_to_glowstone",
@@ -541,6 +547,7 @@
     "image": "washer.png",
     "inputSlots": 1,
     "outputSlots": 1,
+    "pullsItems": false,
     "recipes": [
       {
         "id": "washer_birch_planks_to_tannin_slice",
@@ -590,6 +597,7 @@
     "image": "flashbaker.png",
     "inputSlots": 1,
     "outputSlots": 1,
+    "pullsItems": false,
     "recipes": [
       {
         "id": "flashbacker_netherrack_to_nether_brick_block",
@@ -629,6 +637,7 @@
     "image": "explosive_furnace.png",
     "inputSlots": 1,
     "outputSlots": 1,
+    "pullsItems": false,
     "recipes": [
       {
         "id": "explosive_furnace_birch_wood_to_coal_block",
@@ -648,6 +657,7 @@
     "image": "enchanter.png",
     "inputSlots": 3,
     "outputSlots": 1,
+    "pullsItems": true,
     "recipes": [
       {
         "id": "enchanter_nether_brick_and_gold_ingot_and_birch_planks_to_uncoagulated_mote",
@@ -732,6 +742,7 @@
     "image": "five_crafter.png",
     "inputSlots": 5,
     "outputSlots": 1,
+    "pullsItems": true,
     "recipes": [
       {
         "id": "five_crafter_ender-infused_soil_and_netherite_axe_and_wither_skeleton_skull_and_netherite_chestplate_and_enchanted_torch_to_nether_star",
