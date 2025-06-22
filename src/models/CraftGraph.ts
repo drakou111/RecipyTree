@@ -240,10 +240,10 @@ export class CraftGraph {
                         amount *= 5
                     if (amount > 0 && recipe.machine.pullsItems)
                         generatorOptimisationSlots++;
-                    sum += amount;
+                    sum += Math.ceil(count * amount);
                 }
             }
-            generatorSlots += Math.ceil(count * sum);
+            generatorSlots += Math.ceil(sum);
         }
         return {machineSlots: machineSlots, generatorSlots: generatorSlots, generatorOptimisationSlots: generatorOptimisationSlots, total: (machineSlots + generatorSlots - generatorOptimisationSlots) }
     }

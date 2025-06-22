@@ -328,7 +328,7 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
 
                     {area && (
                         <div className="area-info">
-                            <div>Estimated area (best-case):</div>
+                            <div>Estimated area (no re-use optimisations):</div>
                             <ul>
                                 <li>Machine blocks: {area.machineSlots}</li>
                                 <li>Generator blocks: {area.generatorSlots}</li>
