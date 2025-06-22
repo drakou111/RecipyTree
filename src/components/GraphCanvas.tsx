@@ -326,19 +326,6 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
 
                 <div className="recipe-steps-panel">
 
-                    {area && (
-                        <div className="area-info">
-                            <div>Estimated area (no re-use optimisations):</div>
-                            <ul>
-                                <li>Machine blocks: {area.machineSlots}</li>
-                                <li>Generator blocks: {area.generatorSlots}</li>
-                                <li>Generator optimisation blocks: {area.generatorOptimisationSlots}</li>
-                                <li><strong>Total: {area.machineSlots} + {area.generatorSlots} - {area.generatorOptimisationSlots} = {area.total} Blocks</strong></li>
-                            </ul>
-                        </div>
-                    )}
-
-
                     {bestPath.steps.map((step, idx) => (
                         <div key={idx} className="recipe-step">
                             <div className="inputs">
@@ -392,6 +379,32 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
                             </div>
                         </div>
                     ))}
+                    {area && (
+                        <div className="area-info">
+                            <div>Estimated area
+                                <span className="info-icon">
+                                    
+                                    <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                                        <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="2" fill="none" />
+                                        <rect x="7.25" y="7" width="1.5" height="4.5" fill="currentColor" />
+                                        <circle cx="8" cy="4.25" r="0.75" fill="currentColor" />
+                                    </svg>
+                                    <span className="tooltip">This calculation does not take <br></br>
+                                        into account multiple machines using <br></br>
+                                        the same generators, and re-using machines <br></br>
+                                        for multiple recipes. So the actual <br></br>
+                                        result should be a bit lower.
+                                    </span>
+                                </span>:
+                            </div>
+                            <ul>
+                                <li>Machine blocks: {area.machineSlots}</li>
+                                <li>Generator blocks: {area.generatorSlots}</li>
+                                <li>Generator optimisation blocks: {area.generatorOptimisationSlots}</li>
+                                <li><strong>Total: {area.machineSlots} + {area.generatorSlots} - {area.generatorOptimisationSlots} = {area.total} Blocks</strong></li>
+                            </ul>
+                        </div>
+                    )}
                 </div>
             )}
         </div>
