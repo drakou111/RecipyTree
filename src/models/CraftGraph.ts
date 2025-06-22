@@ -223,9 +223,12 @@ export class CraftGraph {
         // 2) Machine slot cost (as before)
         const machineSlots = path.steps.reduce((sum, { recipe, count }) => {
             let slots = 1;
-            if (recipe.machine.pullsItems)
+            if (recipe.machine.pullsItems) {
                 slots += recipe.inputs.size;
-            return sum + Math.ceil(slots * count);
+            }
+            console.log("ADDED " + slots + " FROM " + recipe.machine.name)
+            console.log("NOW AT " + (sum + Math.ceil(slots * count)))
+            return sum + Math.ceil(slots * Math.ceil(count));
         }, 0);
 
         // 3) Generator slot cost: for each “root” item, we need 5× as many slots
