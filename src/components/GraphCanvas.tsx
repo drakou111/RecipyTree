@@ -4,6 +4,7 @@ import { Item } from "../models/Item";
 import { Machine } from "../models/Machine";
 import { RecipePath } from "../models/RecipePath";
 import "./GraphCanvas.css";
+import { instance as getViz } from "@viz-js/viz";
 
 export type GraphCanvasProps = {
     graph: CraftGraph;
@@ -32,6 +33,7 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
     const [hasMoved, setHasMoved] = useState(false);
     const [focusItem, setFocusItem] = useState<Item | null>(null);
     const itemPosRef = useRef<Map<Item, { x: number; y: number }>>(new Map());
+    const [, bump] = useState(0);
 
     const allItems = Array.from(graph.items.values());
     const allRecipes = Array.from(graph.recipes.values());
@@ -89,10 +91,7 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
         let visibleItems = new Set(allItems);
         let visibleEdges = new Set();
 
-        if (focusItem) {
-            visibleItems = new Set();
-            visibleEdges = new Set();
-        }
+        if (focusItem) visibleItems = new Set();
 
         if (bestPath) {
             for (const step of bestPath.steps) {
@@ -125,8 +124,6 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
             }
         }
 
-
-
         // Layout items
         const fullDepthMap = graph.computeDepths(startingItems, unlockedMachines);
         const depthMap = new Map<Item, number>();
@@ -147,7 +144,6 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({
                 itemPosRef.current.set(item, { x: i * colW, y: j * rowH });
             });
         });
-
 
         // Draw edges with machine icons on bestEdges
         for (const recipe of allRecipes) {

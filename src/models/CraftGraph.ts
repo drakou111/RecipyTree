@@ -219,16 +219,16 @@ export class CraftGraph {
     estimateArea(
         path: RecipePath,
         starting: Set<Item>
-    ): {machineSlots: number, generatorSlots: number, generatorOptimisationSlots: number, total: number } {
+    ): { machineSlots: number, generatorSlots: number, generatorOptimisationSlots: number, total: number } {
         // 2) Machine slot cost (as before)
         const machineSlots = path.steps.reduce((sum, { recipe, count }) => {
             let slots = 1;
             if (recipe.machine.pullsItems) {
-                slots += recipe.inputs.size;
+                slots += recipe.machine.inputSlots;
             }
             console.log("ADDED " + slots + " FROM " + recipe.machine.name)
-            console.log("NOW AT " + (sum + Math.ceil(slots * count)))
-            return sum + Math.ceil(slots * Math.ceil(count));
+            console.log("NOW AT " + (sum + slots *  Math.ceil(count)))
+            return sum + slots * Math.ceil(count);
         }, 0);
 
         // 3) Generator slot cost: for each “root” item, we need 5× as many slots
@@ -248,7 +248,6 @@ export class CraftGraph {
             }
             generatorSlots += Math.ceil(sum);
         }
-        return {machineSlots: machineSlots, generatorSlots: generatorSlots, generatorOptimisationSlots: generatorOptimisationSlots, total: (machineSlots + generatorSlots - generatorOptimisationSlots) }
+        return { machineSlots: machineSlots, generatorSlots: generatorSlots, generatorOptimisationSlots: generatorOptimisationSlots, total: (machineSlots + generatorSlots - generatorOptimisationSlots) }
     }
-
 }

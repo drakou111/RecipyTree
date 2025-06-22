@@ -14,12 +14,14 @@
   },
   "dependencies": {
     "@pixi/react": "^8.0.2",
+    "@viz-js/viz": "^3.14.0",
     "dagre": "^0.8.5",
     "env": "^0.0.2",
     "ic": "^0.0.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "use-local-storage": "^3.0.0"
+    "use-local-storage": "^3.0.0",
+    "viz.js": "^2.1.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
